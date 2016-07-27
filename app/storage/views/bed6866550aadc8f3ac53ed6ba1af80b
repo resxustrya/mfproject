@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+  <?php echo $__env->make('shared.head', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+  <?php $__env->startSection('title'); ?>
+  <?php echo $__env->yieldSection(); ?>
+</head>
+<body class="white">
+  <!-- Start Page Loading -->
+  <div id="loader-wrapper">
+      <div id="loader"></div>
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
+  </div>
+<?php echo $__env->make('applicant.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<div id="main">
+  <div class="wrapper">
+    <?php echo $__env->make('applicant.leftsidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <section id="content">
+      <?php echo $__env->yieldContent('content'); ?>
+    </section>
+    <?php echo $__env->make('applicant.rightsidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+  </div>
+</div>
+<?php echo $__env->make('shared.js', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->startSection('js'); ?>
+
+<?php echo $__env->yieldSection(); ?>
+</body>
+</html>

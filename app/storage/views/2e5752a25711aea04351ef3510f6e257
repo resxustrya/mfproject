@@ -1,0 +1,10 @@
+<!doctype html>
+<html>
+<head>
+    <title>Facebook login</title>
+    <link rel="stylesheet" type="text/css" href="<?php echo asset('public/admin/materialize.min.css'); ?>" />
+</head>
+<body>
+    <a href="facebook-login">Login with Facebook</a>
+</body>
+</html>
