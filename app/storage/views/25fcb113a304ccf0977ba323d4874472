@@ -1,0 +1,19 @@
+  <script type="text/javascript" src="<?php echo asset('js/jquery.js'); ?>"></script>
+    <!--materialize js-->
+    <script type="text/javascript" src="<?php echo asset('material/js/materialize.min.js'); ?>"></script>
+    <!--prism-->
+    <script type="text/javascript" src="<?php echo asset('material/js/prism.js'); ?>"></script>
+    <!--scrollbar-->
+    <script type="text/javascript" src="<?php echo asset('material/js/perfect-scrollbar.js'); ?>"></script>
+    <!-- chartist -->
+    <script type="text/javascript" src="<?php echo asset('material/js/chartis.js'); ?>"></script>
+
+    <!-- sparkline -->
+    <script type="text/javascript" src="<?php echo asset('material/js/jquery.sparkline.min.js'); ?>"></script>
+    <script type="text/javascript" src="<?php echo asset('material/js/sparkline-script.js'); ?>"></script>
+
+    <!-- google map api -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAZnaZBXLqNBRXjd-82km_NO7GUItyKek"></script>
+
+    <!--plugins.js - Some Specific JS codes for Plugin Settings-->
+    <script type="text/javascript" src="<?php echo asset('material/js/plugin.js'); ?>"></script>

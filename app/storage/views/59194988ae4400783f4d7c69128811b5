@@ -1,0 +1,74 @@
+  <!-- START HEADER -->
+  <header id="header" class="page-topbar">
+        <!-- start header nav-->
+        <div class="navbar-fixed">
+            <nav class="cyan">
+                <div class="nav-wrapper">
+
+                    <ul class="left">
+                      <li><h1 class="logo-wrapper"><a href="index.html" class="brand-logo darken-1">MaidFinder PH</a><span class="logo-text">Materialize</span></h1></li>
+                    </ul>
+                    <div class="header-search-wrapper hide-on-med-and-down">
+                        <i class="mdi-action-search"></i>
+                        <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Explore Materialize"/>
+                    </div>
+                    <ul class="right hide-on-med-and-down">
+                        <li>
+                            <a class="dropdown-menu" href="#!" data-activates="info">
+                                <span>Lourence Rex Traya<i class="mdi-navigation-arrow-drop-down right"></i></span>
+                            </a>
+                        </li>
+                    </ul>
+                     <ul id="info" class="dropdown-content dropdown-horizontal-list">
+                        <li><a href="css-icons.html" class="cyan-text">Profile</a></li>
+                        <li><a href='logout' class='cyan-text'>Logout</a></li>
+                        
+                     </ul>
+
+                </div>
+            </nav>
+            <!-- HORIZONTL NAV START-->
+            <nav id="horizontal-nav" class="white hide-on-med-and-down">
+                <div class="nav-wrapper">
+                  <ul id="nav-mobile" class="left hide-on-med-and-down">
+                    <li>
+                        <a href="index.html" class="cyan-text">
+                            <i class="mdi-action-dashboard"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="app-email.html" class="cyan-text">
+                            <i class="mdi-communication-email"></i>
+                            <span>Mailbox</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-menu cyan-text" href="#!" data-activates="CSSdropdown">
+                            <i class="mdi-action-invert-colors"></i>
+                            <span>CSS<i class="mdi-navigation-arrow-drop-down right"></i></span>
+                        </a>
+                    </li>
+                    
+
+                  </ul>
+                </div>
+              </nav>
+
+                <!-- CSSdropdown -->
+                <ul id="CSSdropdown" class="dropdown-content dropdown-horizontal-list">
+                  <li><a href="css-typography.html" class="cyan-text">Typography</a></li>
+                  <li><a href="css-icons.html" class="cyan-text">Icons</a></li>
+                  <li><a href="css-shadow.html" class="cyan-text">Shadow</a></li>
+                  <li><a href="css-media.html" class="cyan-text">Media</a></li>
+                  <li><a href="css-sass.html" class="cyan-text">Sass</a></li>
+                </ul>
+
+                <!-- UIElementsdropdown-->
+               
+            <!-- HORIZONTL NAV END-->
+        </div>
+        <!-- end header nav-->
+  </header>
+  <!-- END HEADER -->
+ 

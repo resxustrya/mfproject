@@ -1,0 +1,44 @@
+<div class="ui  fixed menu inverted borderless" style="background-color:#58C9B9;height:8%;">
+   <div class="left item">
+         <img src="<?php echo asset('semantic/assets/img/icon.png'); ?>" alt="MaidFinderPH">
+            <a  class="logo wodry " href="/" style="font-family:Dancing Script, cursive;weight:100;font-size:2.5em; "> <span  >MaidFinderPH</span></a>
+   </div>
+        <div class="right item">
+            <a class="item" href="/">Home</a>
+            <a class="item" href="cities"> Cities</a>
+            <a class="item" href="maids"> Find a Maid</a>
+            <a class="item" href="hiring"> Get a Job</a>
+            <?php if( !Session::has('employer')): ?>
+                <div class="item">
+                    <div class="ui buttons">
+                       <a href="user-login">
+                         <span class="ui button purple">
+                            <i class="sign in icon"></i>Login
+                         </span>
+                       </a>
+                    <div class="or"></div>
+                        <a href="user-register">
+                            <span class="ui button green">
+                                <i class="user icon"></i>Sign Up
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            <?php else: ?>
+                <?php
+                    $emp = Session::has('employer') ? Session::get('employer') : null;
+                ?>
+                <div class="ui teal buttons">
+                    <div class="ui button"><?php echo $emp['fname'].' '.$emp['lname']; ?></div>
+                    <div class="ui floating dropdown icon button">
+                      <i class="dropdown icon"></i>
+                      <div class="menu">
+                        <div class="item"><i class="edit icon"></i> Edit Post</div>
+                        <div class="item"><i class="delete icon"></i> Remove Post</div>
+                        <div class="item"><i class="hide icon"></i> Hide Post</div>
+                      </div>
+                    </div>
+                </div>
+            <?php endif; ?>
+    </div>
+</div>
