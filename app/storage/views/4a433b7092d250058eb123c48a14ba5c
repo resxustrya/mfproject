@@ -49,8 +49,6 @@
                                                     <label>Civil Status</label>
                                                 </div>
                                             </div>
-
-
                                             <div class="row">
                                                 <div class="input-field col s6">
                                                     <label for="dob">Date Of Birth</label>
@@ -66,6 +64,17 @@
                                                         </select>
                                                         <label>Gender</label>
                                                     </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col s12 m8 l9">
+                                                        <p>
+                                                            <input type="radio" name="gender" value="Male" />
+                                                            <label for="gender">Male</label>
+                                                        </p>
+                                                        <p>
+                                                            <input type="radio" name="gender" value="Female" />
+                                                            <label for="gender">Female</label>
+                                                        </p>
                                                 </div>
                                             </div>
                                         </div>
@@ -91,6 +100,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>

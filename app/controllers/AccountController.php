@@ -23,7 +23,7 @@ class AccountController extends BaseController {
         if($emp and ($emp->email == Input::get('email') and $emp->password == Input::get('password'))) {
             Session::put('employer', $emp);
             Session::put('isAuth',true);
-            return Redirect::to('employer-home');
+            return Redirect::to('employer/home');
         }
         $app = Applicants::where('email', '=', Input::get('email'))
                 ->where('password', '=', Input::get('password'))
@@ -31,7 +31,7 @@ class AccountController extends BaseController {
         if($app and ($app->email == Input::get('email') and $app->password == Input::get('password'))) {
             Session::put('applicant',$app);
             Session::put('isAuth',true);
-            return Redirect::to('applicant-home');
+            return Redirect::to('applicant/home');
         }
         return Redirect::to('user-login')->with('msg','Invalid email or password');
     }
@@ -114,7 +114,7 @@ class AccountController extends BaseController {
             $emp = Employers::find($emp->empid);
             if($emp and ($emp->email == $temp['email'] and $emp->password == $temp['pass'])) {
                 Session::put('employer', $emp);
-                return Redirect::to('employer-home');
+                return Redirect::to('employer/home');
             }
         }
         return Redirect::to('user-register');
@@ -137,7 +137,7 @@ class AccountController extends BaseController {
           $app = Applicants::find($app->appid);
           if($app and ($app->email == $temp['email'] and $app->password == $temp['pass'])) {
               Session::put('applicant', $app);
-              return Redirect::to('applicant-profile');
+              return Redirect::to('applicant/home');
           }
       }
       return Redirect::to('user-register');

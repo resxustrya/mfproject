@@ -15,10 +15,10 @@ Route::get('/', function()
 {
 
     if(Session::has('applicant')) {
-        return Redirect::to('applicant-profile');
+        return Redirect::to('applicant/home');
     }
     if(Session::has('employer')) {
-        return Redirect::to('employer-profile');
+        return Redirect::to('employer/home');
     }
 
     return View::make('semantic.landing');
@@ -26,10 +26,10 @@ Route::get('/', function()
 
 Route::get('user-login', function() {
     if(Session::has('employer')) {
-        return Redirect::to('employer-profile');
+        return Redirect::to('employer/home');
     }
     if(Session::has('applicant')) {
-        return Redirect::to('applicant-profile');
+        return Redirect::to('applicant/home');
     }
     return View::make('account.login');
 });
@@ -55,14 +55,16 @@ Route::get('applicant', 'AccountController@applicant_account');
  *
  */
 
-Route::get('employer-home', 'EmployerController@employer_home');
-Route::get('employer-profile', 'EmployerController@employer_profile');
-Route::get('employer-logout','EmployerController@employer_logout');
-Route::get('employer-update', 'EmployerController@update_profile');
-Route::post('employer-update', 'EmployerController@handle_update');
-Route::get('employer-ads', 'EmployerController@job_ads');
-Route::get('create-ads', 'EmployerController@create_ads');
+Route::get('employer/home', 'EmployerController@employer_home');
+Route::get('employer/profile', 'EmployerController@employer_profile');
+Route::get('employer/logout','EmployerController@employer_logout');
+Route::get('employer/update', 'EmployerController@update_profile');
+Route::post('employer/update', 'EmployerController@handle_update');
+Route::get('employer/ads', 'EmployerController@job_ads');
+Route::get('create/ad', 'EmployerController@create_ads');
+Route::post('create/ad','EmployerController@new_ads');
 Route::get('helpers', 'EmployerController@helpers');
+Route::get('employer/message/inbox', 'EmployerController@message_inbox');
 
 
 /*
@@ -72,12 +74,12 @@ Route::get('helpers', 'EmployerController@helpers');
  *
  *
  */
-Route::get('applicant-home', 'ApplicantController@applicant_home');
-Route::get('applicant-profile','ApplicantController@applicant_profile');
-Route::get('applicant-logout', 'ApplicantController@applicant_logout');
-Route::get('applicant-update', 'ApplicantController@update_profile');
-Route::post('applicant-update', 'ApplicantController@handle_update');
-Route::get('applicant-skill', 'ApplicantController@applicant_skill');
+Route::get('applicant/home', 'ApplicantController@applicant_home');
+Route::get('applicant/profile','ApplicantController@applicant_profile');
+Route::get('applicant/logout', 'ApplicantController@applicant_logout');
+Route::get('applicant/update', 'ApplicantController@update_profile');
+Route::post('applicant/update', 'ApplicantController@handle_update');
+Route::get('applicant/skill', 'ApplicantController@applicant_skill');
 
 
 /*
@@ -125,27 +127,80 @@ Route::post('upload' , function() {
 Route::get('api/employer', function() {
     return Employers::all();
 });
+
 Route::get('api/login', function() {
-    return Applicants::where('email', '=', Input::get('email'))
-                        ->where('password','=', Input::get('password'))
-                        ->get();
+    $app =  Applicants::where('email', '=', Input::get('email'))
+                ->where('password','=', Input::get('password'))
+                ->get();
+
+    if(count($app)) {
+        return $app;
+    }
+
+    $emp =  Employers::where('email', '=', Input::get('email'))
+                    ->where('password','=', Input::get('password'))
+                    ->get();
+
+    if(count($emp)) {
+        return $emp;
+    }
+
+    return ["Invalid email and password"];
+
 });
 
 Route::get('api/job/create', function() {
-    $ads = new Ads();
-    $ads->description = Input::get('description');
-    $ads->location = Input::get('location');
-    $ads->save();
-    return "New ads created";
+    $job = new Jobs();
+    $job->description = Input::get('description');
+    $job->location = Input::get('location');
+    $job->save();
+    return ["New record created"];
 });
-Route::get('api/job/retrieve', function() {
-
-});
-Route::get('api/job/update', function() {
-
-});
-Route::get('api/job/delete', function() {
+Route::get('api/job/retrieve/{id}', function($id) {
+    $job = Jobs::find($id);
+    return $job;
 
 });
+Route::get('api/job/update/{id}', function($id) {
+    $job = Jobs::find($id);
+    $job->description = Input::get('description');
+    $job->location = Input::get('location');
+    $job->save();
 
+    return $id . " is updated";
+});
+Route::get('api/job/delete/{id}', function($id) {
+    $job = Jobs::find($id);
+    $job->delete();
+    return $id ." is deleted";
+});
 
+/*
+ *
+ * DASHBAORD ROUTES
+ *
+ */
+
+Route::get('add/create', function() {
+    $ad = new Ads();
+    $ad->empid = 1;
+    $ad->description = "Nanny";
+    $ad->location = "Davao City";
+    $ad->save();
+    return "New ads record is created";
+});
+
+Route::get('jobtype/add', function() {
+    $type = new JobTypes();
+    $type->description = Input::get('description');
+    $type->save();
+    return "new records created";
+});
+
+Route::get('region/add', function() {
+    $region = new Regions();
+    $region->location = Input::get('location');
+    $region->save();
+
+    return "New region added";
+});

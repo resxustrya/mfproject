@@ -19,15 +19,18 @@ class EmployerController extends BaseController {
     }
 
     public function employer_home() {
-      $app = Applicants::paginate(4);
-      return View::make('employer.home')->with('emp', $this->emp)->with('app', $app);
+      $app = Applicants::paginate(2);
+      $ads = Ads::paginate(2);
+      return View::make('employer.home')->with('emp', $this->emp)
+                    ->with('app', $app)
+                    ->with('ads',$ads);
     }
 
     public function employer_profile() {
         return View::make('employer.profile')->with('emp',$this->emp);
     }
     public function update_profile() {
-      return View::make('employer.update-profile')->with('emp', $this->emp);
+      return View::make('employer.update')->with('emp', $this->emp);
     }
     public function handle_update() {
 
@@ -39,14 +42,15 @@ class EmployerController extends BaseController {
         $emp->gender = Input::get('gender');
         $emp->religion = Input::get('religion');
         $emp->civilstatus = Input::get('status');
-        $emp->contactno = Input::get('contact');
+        $emp->contactno = Input::get('contactno');
         $emp->nationality = Input::get('nationality');
+        $emp->location = Input::get('location');
         $emp->pitch = Input::get('pitch');
 
         if(Input::hasFile('picture')) {
-            $filename = \Illuminate\Support\Facades\Input::file('picture')->getClientOriginalName();
+            $filename = \Illuminate\Support\Facades\Input::file('profilepic')->getClientOriginalName();
             $path = base_path() . '/public/uploads/profile/';
-            Input::file('picture')->move($path, $filename);
+            Input::file('profilepic')->move($path, $filename);
             $emp->profilepic = $filename;
         }
 
@@ -56,18 +60,44 @@ class EmployerController extends BaseController {
     }
     public function job_ads() {
 
-        $ads = JobAds::where('empid', '=', $this->emp->empid);
-        return View::make('employer.jobads')
+        $ads = Ads::where('empid', '=', $this->emp->empid)->get();
+        return View::make('employer.ads')
                     ->with('emp', $this->emp)
                     ->with('ads',$ads);
     }
-
     public function create_ads() {
-        return View::make('employer.create-job');
+        $jobtype = JobTypes::all();
+        $location = Regions::all();
+        return View::make('employer.create-ad')
+                    ->with('emp', $this->emp)
+                    ->with('jobtype', $jobtype)
+                    ->with('location', $location);
+    }
+
+    public function new_ads() {
+        $ads = new Ads();
+        $duties = new Duties();
+        $otherduty = new OtherDuty();
+
+        $ads->empid = $this->emp->empid;
+        $ads->location = Inpug::get('location');
+        $ads->startdate = Input::get('year') .'-' . Input::get('month') .'-' .Input::get('day');
+        $ads->capacity = Input::get('capacity');
+        $ads->salary =Input::get('salary');
+        $ads->gender = Input::get('gender');
+        $ads->edlevel = Input::get('edlevel');
     }
     public function helpers() {
-        $app = Applicants::all();
-        return View::make('hiring.helpers')->with('app', $app);
+        $app = Applicants::paginate(20);
+        return View::make('hiring.helpers')
+                    ->with('app', $app)
+                    ->with('emp', $this->emp);
+    }
+    public function message_inbox() {
+        return View::make('employer.message-inbox')->with('emp', $this->emp);
+    }
+    public function job_request() {
+        return View::make('employer.job-request')->with('emp', $this->emp);
     }
     public function employer_logout() {
 

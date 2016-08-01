@@ -1,30 +1,56 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-  @include('shared.head')
-  @section('title')
-  @show
-</head>
-<body class="white">
-  <!-- Start Page Loading -->
-  <div id="loader-wrapper">
-      <div id="loader"></div>
-      <div class="loader-section section-left"></div>
-      <div class="loader-section section-right"></div>
-  </div>
-@include('applicant.header')
-<div id="main">
-  <div class="wrapper">
-    @include('applicant.leftsidebar')
-    <section id="content">
-      @yield('content')
-    </section>
-    @include('applicant.rightsidebar')
-  </div>
-</div>
-@include('shared.js')
-@section('js')
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('public/material/css/mycss.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('public/material/css/materialize.min.css') }}" />
+    @section('css')
 
+    @show
+    @section('title')
+        <title>MaidFinder PH</title>
+    @show
+    <style>
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+        main {
+            flex: 1 0 auto;
+        }
+    </style>
+</head>
+<body class="grey lighten-4">
+
+@include('applicant.header')
+<div class="container-fluid">
+    <div class="row">
+        @include('applicant.warnings')
+    </div>
+    <div class="row">
+        <div class="col s12 m5 l2">
+            @include('applicant.sidenav')
+        </div>
+        <div class="col s12 m5 l7">
+            @yield('content')
+        </div>
+        <div class="col s12 m5 l3">
+            @include('applicant.rightsection')
+        </div>
+    </div>
+    @include('applicant.footer')
+</div>
+
+<script src="{{ asset('public/material/js/jquery.js') }}"></script>
+<script src="{{ asset('public/material/js/materialize.min.js') }}" ></script>
+<script>
+    $(document).ready(function() {
+        $(".button-collapse").sideNav();
+        $('select').material_select();
+    });
+</script>
+@section('js')
 @show
 </body>
 </html>

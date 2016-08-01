@@ -37,6 +37,7 @@ class Applicant extends Migration {
 			$table->boolean('accountStatus')->nullable();
 			$table->boolean('empStatus')->nullable();
 			$table->string('pitch')->nullable();
+			$table->string('location')->nullable();
 			$table->timestamps();
 			$table->softDeletes();
 		});

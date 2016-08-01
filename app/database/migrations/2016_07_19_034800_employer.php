@@ -31,7 +31,9 @@ class Employer extends Migration {
 			$table->string('contactno',200)->nullable();
 			$table->boolean('isVerified')->nullable();
 			$table->boolean('ishiring')->nullable();
+			$table->boolean('subscribe')->nullable()->default(0);
 			$table->string('pitch')->nullable();
+			$table->string('location')->nullable();
 			$table->timestamps();
 			$table->softDeletes();
 		});

@@ -3,15 +3,14 @@
 /**
  * Created by PhpStorm.
  * User: Lourence
- * Date: 7/26/2016
- * Time: 11:21 AM
+ * Date: 7/30/2016
+ * Time: 12:09 PM
  */
-
 use Illuminate\Database\Eloquent\SoftDeletingTrait;
 class Ads extends Eloquent
 {
     use SoftDeletingTrait;
     protected $table = 'ad';
-    protected $primaryKey = 'jobid';
-    protected $dates = ['deleted_at'];
+    protected $primaryKey = 'adid';
+    protected $date = ['deleted_at'];
 }

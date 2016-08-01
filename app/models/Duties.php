@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletingTrait;
 class Duties extends Eloquent
 {
     use SoftDeletingTrait;
-    protected $table = 'duties';
+    protected $table = 'duty';
     protected $primaryKey = 'dutyid';
     protected $dates = ['deleted_at'];
 }
