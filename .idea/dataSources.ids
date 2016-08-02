@@ -6,7 +6,7 @@
       <identifier-quote-string>`</identifier-quote-string>
     </database-info>
     <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
-    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.4">
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.5">
       <schema id="1" name="dtr"/>
       <table id="2" parent="1" name="admin"/>
       <table id="3" parent="1" name="department"/>
@@ -118,7 +118,7 @@
       <identifier-quote-string>`</identifier-quote-string>
     </database-info>
     <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
-    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.4">
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.5">
       <schema id="1" name="maidfinder"/>
       <table id="2" parent="1" name="migrations"/>
       <table id="3" parent="1" name="ad"/>
@@ -146,7 +146,7 @@
         <data-type>int(11)</data-type>
       </column>
       <column id="16" parent="3" name="location">
-        <data-type>int(11)</data-type>
+        <data-type>varchar(255)</data-type>
       </column>
       <column id="17" parent="3" name="startdate">
         <data-type>varchar(50)</data-type>
@@ -172,8 +172,8 @@
       <column id="24" parent="3" name="contractyears">
         <data-type>int(11)</data-type>
       </column>
-      <column id="25" parent="3" name="jobtypeid">
-        <data-type>int(11)</data-type>
+      <column id="25" parent="3" name="jobtype">
+        <data-type>varchar(255)</data-type>
       </column>
       <column id="26" parent="3" name="created_at">
         <mandatory>1</mandatory>
@@ -331,238 +331,255 @@
       <column id="69" parent="6" name="empid">
         <data-type>int(11)</data-type>
       </column>
-      <column id="70" parent="6" name="content">
-        <mandatory>1</mandatory>
+      <column id="70" parent="6" name="cooking">
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="71" parent="6" name="created_at">
+      <column id="71" parent="6" name="laundry">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="72" parent="6" name="gardening">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="73" parent="6" name="grocery">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="74" parent="6" name="cleaning">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="75" parent="6" name="tuturing">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="76" parent="6" name="other">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="77" parent="6" name="created_at">
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
         <default-expression>&apos;0000-00-00 00:00:00&apos;</default-expression>
       </column>
-      <column id="72" parent="6" name="updated_at">
+      <column id="78" parent="6" name="updated_at">
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
         <default-expression>&apos;0000-00-00 00:00:00&apos;</default-expression>
       </column>
-      <column id="73" parent="6" name="deleted_at">
+      <column id="79" parent="6" name="deleted_at">
         <data-type>timestamp</data-type>
       </column>
-      <key id="74" parent="6" name="PRIMARY">
+      <key id="80" parent="6" name="PRIMARY">
         <columns>dutyid</columns>
         <primary>1</primary>
       </key>
-      <column id="75" parent="7" name="empid">
+      <column id="81" parent="7" name="empid">
         <mandatory>1</mandatory>
         <data-type>int(10) unsigned</data-type>
       </column>
-      <column id="76" parent="7" name="email">
+      <column id="82" parent="7" name="email">
         <mandatory>1</mandatory>
         <data-type>varchar(200)</data-type>
       </column>
-      <column id="77" parent="7" name="password">
+      <column id="83" parent="7" name="password">
         <mandatory>1</mandatory>
         <data-type>varchar(200)</data-type>
       </column>
-      <column id="78" parent="7" name="fname">
+      <column id="84" parent="7" name="fname">
         <mandatory>1</mandatory>
         <data-type>varchar(200)</data-type>
       </column>
-      <column id="79" parent="7" name="lname">
+      <column id="85" parent="7" name="lname">
         <mandatory>1</mandatory>
         <data-type>varchar(200)</data-type>
       </column>
-      <column id="80" parent="7" name="province">
+      <column id="86" parent="7" name="province">
         <data-type>varchar(200)</data-type>
       </column>
-      <column id="81" parent="7" name="address">
+      <column id="87" parent="7" name="address">
         <data-type>varchar(200)</data-type>
       </column>
-      <column id="82" parent="7" name="birth">
+      <column id="88" parent="7" name="birth">
         <data-type>varchar(20)</data-type>
       </column>
-      <column id="83" parent="7" name="gender">
+      <column id="89" parent="7" name="gender">
         <data-type>varchar(2)</data-type>
       </column>
-      <column id="84" parent="7" name="nationality">
+      <column id="90" parent="7" name="nationality">
         <data-type>varchar(20)</data-type>
       </column>
-      <column id="85" parent="7" name="religion">
+      <column id="91" parent="7" name="religion">
         <data-type>varchar(20)</data-type>
       </column>
-      <column id="86" parent="7" name="civilstatus">
+      <column id="92" parent="7" name="civilstatus">
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="87" parent="7" name="nbi">
+      <column id="93" parent="7" name="nbi">
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="88" parent="7" name="profilepic">
+      <column id="94" parent="7" name="profilepic">
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="89" parent="7" name="backgroundpic">
+      <column id="95" parent="7" name="backgroundpic">
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="90" parent="7" name="contactno">
+      <column id="96" parent="7" name="contactno">
         <data-type>varchar(200)</data-type>
       </column>
-      <column id="91" parent="7" name="isVerified">
+      <column id="97" parent="7" name="isVerified">
         <data-type>tinyint(1)</data-type>
       </column>
-      <column id="92" parent="7" name="ishiring">
+      <column id="98" parent="7" name="ishiring">
         <data-type>tinyint(1)</data-type>
       </column>
-      <column id="93" parent="7" name="subscribe">
+      <column id="99" parent="7" name="subscribe">
         <data-type>tinyint(1)</data-type>
         <default-expression>&apos;0&apos;</default-expression>
       </column>
-      <column id="94" parent="7" name="pitch">
+      <column id="100" parent="7" name="pitch">
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="95" parent="7" name="location">
+      <column id="101" parent="7" name="location">
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="96" parent="7" name="created_at">
+      <column id="102" parent="7" name="created_at">
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
         <default-expression>&apos;0000-00-00 00:00:00&apos;</default-expression>
       </column>
-      <column id="97" parent="7" name="updated_at">
+      <column id="103" parent="7" name="updated_at">
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
         <default-expression>&apos;0000-00-00 00:00:00&apos;</default-expression>
       </column>
-      <column id="98" parent="7" name="deleted_at">
+      <column id="104" parent="7" name="deleted_at">
         <data-type>timestamp</data-type>
       </column>
-      <key id="99" parent="7" name="PRIMARY">
+      <key id="105" parent="7" name="PRIMARY">
         <columns>empid</columns>
         <primary>1</primary>
       </key>
-      <column id="100" parent="8" name="jobid">
+      <column id="106" parent="8" name="jobid">
         <mandatory>1</mandatory>
         <data-type>int(10) unsigned</data-type>
       </column>
-      <column id="101" parent="8" name="empid">
+      <column id="107" parent="8" name="empid">
         <data-type>int(11)</data-type>
       </column>
-      <column id="102" parent="8" name="description">
+      <column id="108" parent="8" name="description">
         <data-type>varchar(200)</data-type>
       </column>
-      <column id="103" parent="8" name="location">
+      <column id="109" parent="8" name="location">
         <data-type>varchar(200)</data-type>
       </column>
-      <column id="104" parent="8" name="startdate">
+      <column id="110" parent="8" name="startdate">
         <data-type>varchar(50)</data-type>
       </column>
-      <column id="105" parent="8" name="position">
+      <column id="111" parent="8" name="position">
         <data-type>varchar(50)</data-type>
       </column>
-      <column id="106" parent="8" name="capacity">
+      <column id="112" parent="8" name="capacity">
         <data-type>varchar(50)</data-type>
       </column>
-      <column id="107" parent="8" name="salary">
+      <column id="113" parent="8" name="salary">
         <data-type>double</data-type>
       </column>
-      <column id="108" parent="8" name="dayof">
+      <column id="114" parent="8" name="dayof">
         <data-type>varchar(20)</data-type>
       </column>
-      <column id="109" parent="8" name="gender">
+      <column id="115" parent="8" name="gender">
         <data-type>varchar(5)</data-type>
       </column>
-      <column id="110" parent="8" name="jobtype">
+      <column id="116" parent="8" name="jobtype">
         <data-type>varchar(20)</data-type>
       </column>
-      <column id="111" parent="8" name="created_at">
+      <column id="117" parent="8" name="created_at">
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
         <default-expression>&apos;0000-00-00 00:00:00&apos;</default-expression>
       </column>
-      <column id="112" parent="8" name="updated_at">
+      <column id="118" parent="8" name="updated_at">
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
         <default-expression>&apos;0000-00-00 00:00:00&apos;</default-expression>
       </column>
-      <column id="113" parent="8" name="deleted_at">
+      <column id="119" parent="8" name="deleted_at">
         <data-type>timestamp</data-type>
       </column>
-      <key id="114" parent="8" name="PRIMARY">
+      <key id="120" parent="8" name="PRIMARY">
         <columns>jobid</columns>
         <primary>1</primary>
       </key>
-      <column id="115" parent="9" name="jobtypeid">
+      <column id="121" parent="9" name="jobtypeid">
         <mandatory>1</mandatory>
         <data-type>int(10) unsigned</data-type>
       </column>
-      <column id="116" parent="9" name="description">
+      <column id="122" parent="9" name="description">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="117" parent="9" name="created_at">
+      <column id="123" parent="9" name="created_at">
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
         <default-expression>&apos;0000-00-00 00:00:00&apos;</default-expression>
       </column>
-      <column id="118" parent="9" name="updated_at">
+      <column id="124" parent="9" name="updated_at">
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
         <default-expression>&apos;0000-00-00 00:00:00&apos;</default-expression>
       </column>
-      <column id="119" parent="9" name="deleted_at">
+      <column id="125" parent="9" name="deleted_at">
         <data-type>timestamp</data-type>
       </column>
-      <key id="120" parent="9" name="PRIMARY">
+      <key id="126" parent="9" name="PRIMARY">
         <columns>jobtypeid</columns>
         <primary>1</primary>
       </key>
-      <column id="121" parent="10" name="otherid">
+      <column id="127" parent="10" name="otherid">
         <mandatory>1</mandatory>
         <data-type>int(10) unsigned</data-type>
       </column>
-      <column id="122" parent="10" name="content">
+      <column id="128" parent="10" name="content">
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="123" parent="10" name="empid">
+      <column id="129" parent="10" name="empid">
         <data-type>int(11)</data-type>
       </column>
-      <column id="124" parent="10" name="created_at">
+      <column id="130" parent="10" name="created_at">
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
         <default-expression>&apos;0000-00-00 00:00:00&apos;</default-expression>
       </column>
-      <column id="125" parent="10" name="updated_at">
+      <column id="131" parent="10" name="updated_at">
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
         <default-expression>&apos;0000-00-00 00:00:00&apos;</default-expression>
       </column>
-      <column id="126" parent="10" name="deleted_at">
+      <column id="132" parent="10" name="deleted_at">
         <data-type>timestamp</data-type>
       </column>
-      <key id="127" parent="10" name="PRIMARY">
+      <key id="133" parent="10" name="PRIMARY">
         <columns>otherid</columns>
         <primary>1</primary>
       </key>
-      <column id="128" parent="11" name="regionid">
+      <column id="134" parent="11" name="regionid">
         <mandatory>1</mandatory>
         <data-type>int(10) unsigned</data-type>
       </column>
-      <column id="129" parent="11" name="location">
+      <column id="135" parent="11" name="location">
         <mandatory>1</mandatory>
         <data-type>varchar(50)</data-type>
       </column>
-      <column id="130" parent="11" name="created_at">
+      <column id="136" parent="11" name="created_at">
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
         <default-expression>&apos;0000-00-00 00:00:00&apos;</default-expression>
       </column>
-      <column id="131" parent="11" name="updated_at">
+      <column id="137" parent="11" name="updated_at">
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
         <default-expression>&apos;0000-00-00 00:00:00&apos;</default-expression>
       </column>
-      <column id="132" parent="11" name="deleted_at">
+      <column id="138" parent="11" name="deleted_at">
         <data-type>timestamp</data-type>
       </column>
-      <key id="133" parent="11" name="PRIMARY">
+      <key id="139" parent="11" name="PRIMARY">
         <columns>regionid</columns>
         <primary>1</primary>
       </key>

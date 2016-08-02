@@ -15,12 +15,17 @@ class Duty extends Migration {
 		Schema::create('duty', function($table) {
 			$table->increments('dutyid');
 			$table->integer('empid')->nullable();
-			$table->string('content')->nulable();
+			$table->string('cooking')->nullable();
+			$table->string('laundry')->nullable();
+			$table->string('gardening')->nullable();
+			$table->string('grocery')->nullable();
+			$table->string('cleaning')->nullable();
+			$table->string('tuturing')->nullable();
+			$table->string('other')->nullable();
 			$table->timestamps();
 			$table->softDeletes();
 		});
 	}
-
 	/**
 	 * Reverse the migrations.
 	 *

@@ -13,13 +13,14 @@
             @foreach($ads as $ad)
                 <div class="collection">
                     <div class="collection-item">
-                        <div class="right-align"><a href="create-ad" class="btn cyan lighten-3">Update</a></div>
-                        <strong>{{ $ad['description'] }}</strong>
+                        <div class="right-align"><a href="create-ad" style="text-decoration: underline;" class="">Update ad</a></div>
+                        <h5>Job type : {{ $ad['jobtype'] }}</h5>
                         <br />
-                        <span>{{ $ad['location'] }}</span>
+                        <span>Location : <strong>{{ $ad['location'] }}</strong></span>
                     </div>
                 </div>
             @endforeach
+                <div class="left-align"><a href="{{ asset('create/ad') }}" class="btn cyan lighten-3">Ad new ad</a></div>
         </div>
     @else
         <div class="row">

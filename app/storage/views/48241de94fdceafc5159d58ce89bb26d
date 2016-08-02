@@ -11,13 +11,14 @@
             <?php foreach($ads as $ad): ?>
                 <div class="collection">
                     <div class="collection-item">
-                        <div class="right-align"><a href="create-ad" class="btn cyan lighten-3">Update</a></div>
-                        <strong><?php echo $ad['description']; ?></strong>
+                        <div class="right-align"><a href="create-ad" style="text-decoration: underline;" class="">Update ad</a></div>
+                        <h5>Job type : <?php echo $ad['jobtype']; ?></h5>
                         <br />
-                        <span><?php echo $ad['location']; ?></span>
+                        <span>Location : <strong><?php echo $ad['location']; ?></strong></span>
                     </div>
                 </div>
             <?php endforeach; ?>
+                <div class="left-align"><a href="<?php echo asset('create/ad'); ?>" class="btn cyan lighten-3">Ad new ad</a></div>
         </div>
     <?php else: ?>
         <div class="row">

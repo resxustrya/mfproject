@@ -61,9 +61,11 @@ class EmployerController extends BaseController {
     public function job_ads() {
 
         $ads = Ads::where('empid', '=', $this->emp->empid)->get();
+        $duties = Duties::where('empid', '=', $this->emp->empid);
         return View::make('employer.ads')
                     ->with('emp', $this->emp)
-                    ->with('ads',$ads);
+                    ->with('ads',$ads)
+                    ->with('duties', $duties);
     }
     public function create_ads() {
         $jobtype = JobTypes::all();
@@ -77,15 +79,30 @@ class EmployerController extends BaseController {
     public function new_ads() {
         $ads = new Ads();
         $duties = new Duties();
-        $otherduty = new OtherDuty();
+
 
         $ads->empid = $this->emp->empid;
-        $ads->location = Inpug::get('location');
+        $ads->location = Input::get('location');
         $ads->startdate = Input::get('year') .'-' . Input::get('month') .'-' .Input::get('day');
         $ads->capacity = Input::get('capacity');
         $ads->salary =Input::get('salary');
         $ads->gender = Input::get('gender');
         $ads->edlevel = Input::get('edlevel');
+        $ads->jobtype = Input::get('jobtype');
+        $ads->contractyears = Input::get('contractyears');
+        $ads->save();
+
+        $duties->cooking = Input::get('cooking');
+        $duties->laundry = Input::get('laundry');
+        $duties->gardening = Input::get('gardening');
+        $duties->grocery = Input::get('grocery');
+        $duties->cleaning = Input::get('tuturing');
+        $duties->other = Input::get('other');
+
+        $duties->save();
+
+        return Redirect::to('employer/ads');
+
     }
     public function helpers() {
         $app = Applicants::paginate(20);

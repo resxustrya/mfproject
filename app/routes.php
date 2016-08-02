@@ -80,6 +80,7 @@ Route::get('applicant/logout', 'ApplicantController@applicant_logout');
 Route::get('applicant/update', 'ApplicantController@update_profile');
 Route::post('applicant/update', 'ApplicantController@handle_update');
 Route::get('applicant/skill', 'ApplicantController@applicant_skill');
+Route::get('applicant/message','ApplicantController@message');
 
 
 /*

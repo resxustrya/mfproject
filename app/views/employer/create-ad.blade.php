@@ -4,16 +4,16 @@
 @section('content')
     <div class="row">
         <div class="card-panel ">
-            <form action="{{ asset('employer/update') }}" method="POST">
+            <form action="{{ asset('create/ad') }}" method="POST">
                 <h4>Create new ad</h4>
                 <div class="row">
                     <table>
                         <tr>
-                            <td><label for="description">Position</label></td>
+                            <td><label for="jobtype">Position</label></td>
                             <td>
-                                <select class="browser-default" name="description" id="position">
+                                <select class="browser-default" name="jobtype" id="position">
                                     @foreach($jobtype as $item)
-                                        <option value="{{ $item['jobtypeid'] }}">{{ $item['description'] }}</option>
+                                        <option value="{{ $item['description'] }}">{{ $item['description'] }}</option>
                                     @endforeach
                                 </select>
                             </td>
@@ -23,7 +23,7 @@
                             <td>
                                 <select class="browser-default" name="location" id="location">
                                     @foreach($location as $loc)
-                                        <option value="{{ $loc['regionid'] }}">{{ $loc['location'] }}</option>
+                                        <option value="{{ $loc['location'] }}">{{ $loc['location'] }}</option>
                                     @endforeach
                                 </select>
                             </td>
@@ -51,7 +51,7 @@
                         <tr>
                             <td><label for="gender">Helper gender</label> </td>
                             <td>
-                                <input type="radio" id="test1" name="gender" value="Female"/>
+                                <input type="radio" id="test1" checked name="gender" value="Female"/>
                                 <label for="test1">Female</label>
                                 <input type="radio" id="test2" name="gender" value="Male"/>
                                 <label for="test2">Male</label>

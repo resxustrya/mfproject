@@ -15,7 +15,7 @@ class Ad extends Migration {
 		Schema::create('ad', function($table) {
 			$table->increments('adid');
 			$table->integer('empid')->nullable();
-			$table->integer('location')->nullable();
+			$table->string('location')->nullable();
 			$table->string('startdate',50)->nullable();
 			$table->string('capacity',50)->nullable();
 			$table->double('salary')->nullable();
@@ -24,7 +24,7 @@ class Ad extends Migration {
 			$table->string('gender', 5)->nullable();
 			$table->string('edlevel')->nullable();
 			$table->integer('contractyears')->nullable();
-			$table->integer('jobtypeid')->nullable();
+			$table->string('jobtype')->nullable();
 			$table->timestamps();
 			$table->softDeletes();
 		});
