@@ -33,7 +33,15 @@
     });
 </script>
 @section('js')
+    <script>
+        $(document).ready(function() {
+            $('.modal-trigger').leanModal();
 
+            $('.close').click(function (e) {
+                e.closeModal();
+            });
+        });
+    </script>
 @show
 </body>
 </html>

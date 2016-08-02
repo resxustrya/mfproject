@@ -5,6 +5,7 @@
         <group>
             <file>file:/C:/xampp/htdocs/MaidFinder/app/routes.php</file>
             <file>file:/C:/xampp/htdocs/MaidFinder/app/controllers/EmployerController.php</file>
+            <file>file:/C:/xampp/htdocs/MaidFinder/app/views/employer/create-ad.blade.php</file>
         </group>
     </open-files>
 </project-private>

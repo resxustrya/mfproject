@@ -16,6 +16,7 @@
 
                 </div>
                 <div class="row">
+                    <?php $count = 1; ?>
                     @foreach($app as $applicant)
                         <div class="col s12 m6 l4">
                             <div class="row z-depth-1 grey lighten-5 profile">
@@ -30,13 +31,25 @@
                                     <p>Helpers</p>
                                     <p><span>Location </span></p>
                                     <div class="divider"></div>
-                                    <a href="hire.php"><button class="btn light-blue lighten-1 col sm s12" type="submit" name="action"> View Profile</button></a>
+                                    <a href="#modal{{ $count }}" class="btn light-blue lighten-1 col sm s12 modal-trigger" type="submit" name="action"> View Profile</a>
                                 </div>
                             </div>
                         </div>
+                        <div id="modal{{$count}}" class="modal">
+                            <div class="modal-content">
+                                <div class="row">
+                                    <div class="col s12 m6 l6">
+                                        <img class="responsive-img" height="300px" width="200px" src="{{ asset('public/uploads/profile/'.(($applicant['profilepic']) != null ? $applicant['profilepic'] :'facebook.jpg' )) }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+                            </div>
+                        </div>
+                        <?php $count++ ?>
                     @endforeach
                 </div>
-
                     <div class="card-content">
                         <ul class="pagination">
                             {{ $app->links() }}
