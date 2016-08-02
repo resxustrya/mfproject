@@ -7,21 +7,20 @@
     <!--Site Properties-->
 
     <title>Maid Finder PH</title>
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/semantic/assets/css/semantic.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/semantic/assets/css/mycss.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/semantic/assets/css/fonts.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/semantic/assets/css/wodry.css') }}">
+    <link rel="stylesheet" type="text/css" href="<?php echo asset('public/semantic/assets/css/semantic.min.css'); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo asset('public/semantic/assets/css/mycss.css'); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo asset('public/semantic/assets/css/wodry.css'); ?>">
+    <link href='https://fonts.googleapis.com/css?family=Dancing+Script' rel='stylesheet' type='text/css'>
 
-    <link rel="icon" href="{{ asset('public/semantic/assets/img/icon2.png') }}">
-    <script type="text/javascript" src="{{ asset('public/semantic/assets/js/jquery.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('public/semantic/assets/js/wodry.min.js') }}"></script>
+    <link rel="icon" href="<?php echo asset('public/semantic/assets/img/icon.png'); ?>">
+    <script type="text/javascript" src="<?php echo asset('public/semantic/assets/js/jquery.min.js'); ?>"></script>
+    <script type="text/javascript" src="<?php echo asset('public/semantic/assets/js/wodry.min.js'); ?>"></script>
 </head>
 <body>
     <!-- Following Menu -->
-<div class="ui  fixed hidden menu inverted borderless" style="margin-top:0px;background-color:#54a7bf;">
-        <div class="left item">
-            <img class="ui tiny image"src="{{ asset('public/semantic/assets/img/icon3.png') }}" alt="">
-            <a  class="logo " href="/" style="font-family:DancingScript, cursive;weight:100;font-size:2.5em;"> <span  >MaidFinderPH </span></a>
+<div class="ui  fixed hidden menu borderless" style="margin-top:0px;background-color:#ecf0f1;">
+   <div class="left item">
+            <a  class="logo " href="/" style="font-family:Dancing Script, cursive;weight:100;font-size:2.5em;"> <span  >MaidFinderPH </span></a>
         </div>
   <div class="ui container">
         <div class="right item">
@@ -32,13 +31,13 @@
                 <div class="item">
                     <div class="ui buttons">
                       <a href="user-login">
-                         <span class="ui button blue1 " style="background-color: #88d3f6;">
+                         <span class="ui button purple">
                             <i class="sign in icon"></i>Login
                          </span>
                        </a>
                     <div class="or"></div>
                         <a href="user-register">
-                            <span class="ui button " style="background-color: #d0c38a">
+                            <span class="ui button green">
                                 <i class="user icon"></i>Sign Up
                             </span>
                         </a>
@@ -69,8 +68,7 @@
                             </a>
                         </div>
                         <div class="left item">
-                            <img class="ui tiny image"src="{{ asset('public/semantic/assets/img/icon3.png') }}" alt="">
-                            <a class="logo " href="#" ><span style="font-family:DancingScript, cursive;weight:100;font-size:2.5em">aidFinderPH </span></a>
+                            <a class="logo " href="#" ><span style="font-family:Dancing Script, cursive;weight:100;font-size:2.5em" class="wodry">MaidFinderPH </span></a>
                         </div>
                         <div class="right item">
                             <a class="active item" href="/">Home</a>
@@ -80,13 +78,13 @@
                             <div class="item">
                                 <div class="ui buttons">
                                   <a href="user-login">
-                                        <span class="ui button " style="background-color: #88d3f6;">
+                                        <span class="ui button purple">
                                             <i class="sign in icon"></i>Login
                                         </span>
                                    </a>
                                    <div class="or"></div>
                                    <a href="user-register">
-                                        <span class="ui button " style="background-color: #d0c38a">
+                                        <span class="ui button green">
                                              <i class="user icon"></i>Sign Up
                                         </span>
                                    </a>
@@ -127,7 +125,7 @@
                             </div>
                         </div>
                         <div class="field">
-                            <button class="ui submit   container animated button" tabindex="0" style="background-color: #3498db;color: white;">
+                            <button class="ui submit teal  container animated button" tabindex="0">
                                 <div class="visible content">Let's Go</div>
                                 <div class="hidden content"> Get intstant maid near to your place &nbsp; <i class="child icon"></i></div>
                             </button>
@@ -137,25 +135,25 @@
                 </div>
             </div>
         </div>
-         <!---  <div class="overlay dnl">
-              <div class="ui inverted labeled icon vertical menu"  style="background-color:#D1B6E1">
-                <a class="item "><i class=" download icon inverted" ></i> Download App</a>
-              </div>
-           </div>-->
+           <div class="overlay dnl">
+          <div class="ui inverted labeled icon vertical menu"  style="background-color:#D1B6E1">
+            <a class="item "><i class=" download icon inverted" ></i> Download App</a>
+          </div>
+        </div>
   <div class="ui vertical stripe segment " id="hdiw">
       <div class="row">
          <h3 class="ui header center aligned  ">How does it work?</h3>
          <div class="ui container three column grid">
              <div class="column">
-               <img class="ui small centered image" src="{{ asset('public/semantic/assets/img/city.png') }}">
+               <img class="ui small centered image" src="<?php echo asset('public/semantic/assets/img/city.png'); ?>">
                <p>Use our search to tell us what you need. See the profile of available maids or job in your city or area.</p>
             </div>
             <div class="column">
-               <img class="ui small centered image" src="{{ asset('public/semantic/assets/img/shortlist.png') }}">
+               <img class="ui small centered image" src="<?php echo asset('public/semantic/assets/img/shortlist.png'); ?>">
                 <p>View the complete profile of the available maids or the jobs and shortlist as per your preferences.</p>
             </div>
             <div class="column">
-              <img class="ui small centered image" src="{{ asset('public/semantic/assets/img/contact.png') }}">
+              <img class="ui small centered image" src="<?php echo asset('public/semantic/assets/img/contact.png'); ?>">
                 <p>Contact to the applied job or hired employee upon notifying them by clicking the Apply or Hire Button. You can get each contact number or send message through the app.</p>
             </div>
         </div>
@@ -172,7 +170,7 @@
           <p> Quamquam haec quidem praeposita recte et reiecta dicere licebit. Egone non intellego, quid sit don Graece, Latine voluptas? </p>
         </div>
         <div class="six wide right floated column">
-          <img src="{{ asset('public/semantic/assets/img/babysitting_app.jpg') }}" class="ui large bordered rounded image">
+          <img src="<?php echo asset('public/semantic/assets/img/babysitting_app.jpg'); ?>" class="ui large bordered rounded image">
         </div>
       </div>
     </div>
@@ -189,7 +187,7 @@
         <div class="column">
           <h3>"Quamquam haec quidem praeposita recte."</h3>
           <p>
-            <img src="{{ asset('public/semantic/assets/img/bg1.jpg') }}" class="ui avatar image"> <b>Nan</b> Chief Fun Officer Acme Toys
+            <img src="<?php echo asset('public/semantic/ssets/img/bg1.jpg'); ?>" class="ui avatar image"> <b>Nan</b> Chief Fun Officer Acme Toys
           </p>
         </div>
       </div>
@@ -241,7 +239,7 @@
                   </div>
               </div>
         </div>
-            <img src="{{ asset('public/semantic/assets/img/stevie.jpg') }}" class="ui small circular image" >
+            <img src="<?php echo asset('public/semantic/assets/img/stevie.jpg'); ?>" class="ui small circular image" >
         </div>
 
         <div class="center">
@@ -281,7 +279,7 @@
                   </div>
               </div>
         </div>
-            <img src="{{ asset('public/semantic/assets/img/stevie.jpg') }}" class="ui small circular image" >
+            <img src="<?php echo asset('public/semantic/assets/img/stevie.jpg'); ?>" class="ui small circular image" >
         </div>
         <div class="center">
             <div class="content">
@@ -320,7 +318,7 @@
                   </div>
               </div>
         </div>
-            <img src="{{ asset('public/semantic/assets/img/stevie.jpg') }}" class="ui small circular image" >
+            <img src="<?php echo asset('public/semantic/assets/img/stevie.jpg'); ?>" class="ui small circular image" >
         </div>
         <div class="center">
             <div class="content">
@@ -359,7 +357,7 @@
                   </div>
               </div>
         </div>
-            <img src="{{ asset('public/semantic/assets/img/stevie.jpg') }}" class="ui small circular image" >
+            <img src="<?php echo asset('public/semantic/assets/img/stevie.jpg'); ?>" class="ui small circular image" >
         </div>
         <div class="center">
             <div class="content">
@@ -398,7 +396,7 @@
                       </div>
                   </div>
             </div>
-                <img src="{{ asset('public/semantic/assets/img/stevie.jpg') }}" class="ui small circular image" >
+                <img src="<?php echo asset('public/semantic/assets/img/stevie.jpg'); ?>" class="ui small circular image" >
             </div>
             <div class="center">
                 <div class="content">
@@ -436,7 +434,7 @@
                       </div>
                   </div>
             </div>
-                <img src="{{asset('public/semantic/assets/img/stevie.jpg') }}" class="ui small circular image" >
+                <img src="<?php echo asset('public/semantic/assets/img/stevie.jpg'); ?>" class="ui small circular image" >
             </div>
             <div class="center">
                 <div class="content">
@@ -454,7 +452,7 @@
    </div>
  </div>
 <!---------------------THIS IS FOOTER-------------------------------->
- <div class="ui inverted vertical footer segment" style="background-color:#88d3f6">
+ <div class="ui inverted vertical footer segment" style="background-color:#009688">
     <div class="ui container">
       <div class="ui stackable inverted divided equal height stackable grid">
         <div class="three wide column">
@@ -492,7 +490,7 @@
     </div>
   </div>
    </div>
-    <script src="{{ asset('public/semantic/assets/js/semantic.min.js') }}"></script>
-    <script src="{{ asset('public/semantic/assets/js/myjs.js') }}"></script>
+    <script src="<?php echo asset('public/semantic/assets/js/semantic.min.js'); ?>"></script>
+    <script src="<?php echo asset('public/semantic/assets/js/myjs.js'); ?>"></script>
 </body>
 </html>
