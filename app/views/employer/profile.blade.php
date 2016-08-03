@@ -12,23 +12,27 @@
                 <table border="0" class="browser-default">
                     <tr>
                         <td>Name</td>
-                        <td>{{ $emp['fname'] ." ". $emp['lname'] }}</td>
+                        <td><strong>{{ $emp['fname'] ." ". $emp['lname'] }}</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Location</td>
+                        <td><strong>{{ $emp['location'] }}</strong></td>
                     </tr>
                     <tr>
                         <td>Address</td>
-                        <td>{{ $emp['address']  }}</td>
+                        <td><strong>{{ $emp['address']  }}</strong></td>
                     </tr>
                     <tr>
                         <td>Email</td>
-                        <td>{{ $emp['email'] }}</td>
+                        <td><strong>{{ $emp['email'] }}</strong></td>
                     </tr>
                     <tr>
                         <td>Birthdate</td>
-                        <td>{{ $emp['bdate'] }}</td>
+                        <td><strong>{{ $emp['bdate'] }}</strong></td>
                     </tr>
                     <tr>
                         <td>Nationality</td>
-                        <td>{{ $emp['nationality'] }}</td>
+                        <td><strong>{{ $emp['nationality'] }}</strong></td>
                     </tr>
                 </table>
             </div>

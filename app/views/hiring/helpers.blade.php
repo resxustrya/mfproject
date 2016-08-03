@@ -41,6 +41,9 @@
                                     <div class="col s12 m6 l6">
                                         <img class="responsive-img" height="300px" width="200px" src="{{ asset('public/uploads/profile/'.(($applicant['profilepic']) != null ? $applicant['profilepic'] :'facebook.jpg' )) }}">
                                     </div>
+                                    <div class="col s12 m6 l6">
+                                        <span class="card-title activator grey-text text-darken-4">{{ $applicant['fname'] ." ".$applicant['lname'] }}</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -59,7 +62,6 @@
         </div>
     </div>
 @stop
-
 @section('js')
     @parent
 

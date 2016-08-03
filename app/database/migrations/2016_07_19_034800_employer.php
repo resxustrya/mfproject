@@ -20,8 +20,8 @@ class Employer extends Migration {
 			$table->string('lname',200);
 			$table->string('province',200)->nullable();
 			$table->string('address',200)->nullable();
-			$table->string('birth',20)->nullable();
-			$table->string('gender',2)->nullable();
+			$table->string('bdate',20)->nullable();
+			$table->string('gender',10)->nullable();
 			$table->string('nationality',20)->nullable();
 			$table->string('religion',20)->nullable();
 			$table->string('civilstatus')->nullable();

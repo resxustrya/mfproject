@@ -3,87 +3,91 @@
 @section('content')
     <div class="row">
         <div class="card-panel ">
-            <h4>Update profile</h4>
-            <div class="row">
-                <form class="col s12 m4 l12" method="POST" action="{{ asset('employer/update') }}">
+            <form action="{{ asset('employer/update') }}" method="POST">
+                <h4>Update profile</h4>
+                <div class="row">
                     <table>
                         <tr>
                             <td><label for="fname">First name</label> </td>
-                            <td><input type="text" name="fname" /> </td>
+                            <td>
+                                <input type="text" name="fname" value="{{ isset($emp['fname']) ? $emp['fname'] : '' }}" />
+                            </td>
                         </tr>
                         <tr>
                             <td><label for="lname">Last name</label> </td>
-                            <td><input type="text" name="lname" /> </td>
+                            <td>
+                               <input type="text" name="lname" value="{{ isset($emp['lname']) ? $emp['lname'] : '' }}" />
+                            </td>
                         </tr>
                         <tr>
-                            <td><label for="location">Location</label></td>
+                            <td><label for="gender">Helper gender</label> </td>
                             <td>
-                                <?php $location = Regions::all(); ?>
-                                <select name="location" class="browser-default">
-                                    @foreach($location as $loc)
-                                        <option value="{{ $loc['regionid'] }}">{{ $loc['location'] }}</option>
+                                <input type="radio" id="test1"  name="gender" {{ ($emp['gender'] == 'Female')? 'checked' : '' }} value="Female"/>
+                                <label for="test1">Female</label>
+                                <input type="radio" id="test2" name="gender" {{ ($emp['gender'] == 'Male' )? 'checked' : '' }} value="Male"/>
+                                <label for="test2">Male</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="startdate"> Birth date <strong class="black-text">({{ $emp['bdate']}})</strong></label></td>
+                            <td>
+                                <select class="browser-default" name="year">
+                                    <?php $date = explode('/', $emp['bdate']); ?>
+                                    <?php $count = 1 ?>
+                                    @for($i = date('Y');50 > $count++; $i--)
+                                        <option {{ $date[2] == $i ? 'selected' : ''}} value="{{ $i }}"> {{ $i }}</option>
+                                    @endfor
+                                </select>
+                                <select class="browser-default" name="month">
+                                    <?php $month = array("January", "Febuary", "March", "April", "May", "June", "July", "August", "September","October", "November", "December"); ?>
+                                    @foreach($month as $m)
+                                        <option {{ $date[0] == $m ? 'selected' : ''}} value="{{ $m }}">{{ $m }}</option>
                                     @endforeach
                                 </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><label for="Address">Address</label> </td>
-                            <td><input type="text" name="address" /> </td>
-                        </tr>
-                        <tr>
-                            <td><label for="gender">Gender</label> </td>
-                            <td>
-                                <select name="gender" class="browser-default">
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
+                                <select name="day"  class="browser-default">
+                                    @for($i = 1; $i <= 31; $i++)
+                                        <option {{ $date[1] == $i ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
+                                    @endfor
                                 </select>
                             </td>
+                        </tr>
+                        <tr>
+                            <td><label for="location">Location</label> </td>
+                            <td>
+                                <select name="location" class="browser-default">
+                                    @foreach($location as $loc)
+                                        <option value="{{ $emp['location'] }} {{ ( $emp['location'] == $loc ? 'selected' :'') }}">{{ $loc['location'] }}</option>
+                                     @endforeach
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="address">Address</label> </td>
+                            <td><input type="text" name="address" value="{{ isset($emp['address']) ? $emp['address'] :'' }}"> </td>
                         </tr>
                         <tr>
                             <td><label for="nationality">Nationality</label> </td>
-                            <td><input type="text" name="nationality" /> </td>
+                            <td><input  class="browser-default" type="text" name="nationality" value="{{ isset($emp['nationality']) ? $emp['nationality'] : '' }}" /> </td>
                         </tr>
                         <tr>
-                            <td><label for="religion">Religion</label></td>
+                            <td><label for="pitch">Say something about you job ad</label> </td>
                             <td>
-                                <select name="religion" class="browser-default">
-                                    <option value="Roman Catholic">Roman Catholic</option>
-                                    <option value="Muslim">Muslim</option>
-                                    <option value="Christian">Christian</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><label for="civilstatus">Civil status</label> </td>
-                            <td>
-                                <select name="civilstatus" class="browser-default">
-                                    <option value="Single">Single</option>
-                                    <option value="Married">Married</option>
-                                    <option value="Widowed">Widowed</option>
-                                    <option value="Separated">Separated</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><label for="profilepic">Profile</label></td>
-                            <td>
-                                <input type="file" name="profilepic" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><label for="contactno">Contact no</label> </td>
-                            <td><input type="text" name="contactno" /> </td>
-                        </tr>
-                        <tr>
+                                <textarea id="textarea1" rows="7" name="pitch" class="materialize-textarea">
 
+                                </textarea>
+                            </td>
                         </tr>
+                    </table>
+                </div>
+                <div class="row">
+                    <table>
                         <tr>
-
+                            <td>&nbsp;</td>
                             <td dir="rtl"><input type="submit" class="cyan lighten-3 col s12 m5 l5 btn-large right-align" value="Save" name="submit" /></td>
                         </tr>
                     </table>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
     </div>
 @stop

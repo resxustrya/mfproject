@@ -395,11 +395,11 @@
       <column id="87" parent="7" name="address">
         <data-type>varchar(200)</data-type>
       </column>
-      <column id="88" parent="7" name="birth">
+      <column id="88" parent="7" name="bdate">
         <data-type>varchar(20)</data-type>
       </column>
       <column id="89" parent="7" name="gender">
-        <data-type>varchar(2)</data-type>
+        <data-type>varchar(10)</data-type>
       </column>
       <column id="90" parent="7" name="nationality">
         <data-type>varchar(20)</data-type>

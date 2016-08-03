@@ -10,23 +10,27 @@
                 <table border="0" class="browser-default">
                     <tr>
                         <td>Name</td>
-                        <td><?php echo $emp['fname'] ." ". $emp['lname']; ?></td>
+                        <td><strong><?php echo $emp['fname'] ." ". $emp['lname']; ?></strong></td>
+                    </tr>
+                    <tr>
+                        <td>Location</td>
+                        <td><strong><?php echo $emp['location']; ?></strong></td>
                     </tr>
                     <tr>
                         <td>Address</td>
-                        <td><?php echo $emp['address']; ?></td>
+                        <td><strong><?php echo $emp['address']; ?></strong></td>
                     </tr>
                     <tr>
                         <td>Email</td>
-                        <td><?php echo $emp['email']; ?></td>
+                        <td><strong><?php echo $emp['email']; ?></strong></td>
                     </tr>
                     <tr>
                         <td>Birthdate</td>
-                        <td><?php echo $emp['bdate']; ?></td>
+                        <td><strong><?php echo $emp['bdate']; ?></strong></td>
                     </tr>
                     <tr>
                         <td>Nationality</td>
-                        <td><?php echo $emp['nationality']; ?></td>
+                        <td><strong><?php echo $emp['nationality']; ?></strong></td>
                     </tr>
                 </table>
             </div>

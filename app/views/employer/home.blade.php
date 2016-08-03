@@ -8,7 +8,13 @@
 @section('content')
 
     @if(count($ads) > 0)
-
+        <div class="row">
+            <div class="card-panel">
+                <h5 class="">Your ads</h5>
+                <p><a href="{{ asset('subscription') }}">Subscribe</a> to our basic and premium plans for your ads promotion and helpers job hiring.</p>
+                <div class=""><a href="{{ asset('employer/ads') }}">View your ads</a> </div>
+            </div>
+        </div>
     @else
         <div class="row">
             <div class="card-panel">
@@ -20,6 +26,7 @@
 
     <div class="row">
         <div class="card-panel">
+            <h6><strong>Find helpers</strong></h6>
             <form action="{{ asset('helpers') }}" method="get">
                 <div class="row">
                     <div class="col s12 m3 l6">

@@ -30,7 +30,10 @@ class EmployerController extends BaseController {
         return View::make('employer.profile')->with('emp',$this->emp);
     }
     public function update_profile() {
-      return View::make('employer.update')->with('emp', $this->emp);
+        $region = Regions::all();
+      return View::make('employer.update')
+                    ->with('emp', $this->emp)
+                    ->with('location', $region);
     }
     public function handle_update() {
 
@@ -38,7 +41,7 @@ class EmployerController extends BaseController {
         $emp->fname = Input::get('fname');
         $emp->lname = Input::get('lname');
         $emp->address = Input::get('address');
-        $emp->birth = Input::get('bdate');
+        $emp->bdate = Input::get('month')."/".Input::get('day')."/".Input::get('year');
         $emp->gender = Input::get('gender');
         $emp->religion = Input::get('religion');
         $emp->civilstatus = Input::get('status');
@@ -56,11 +59,12 @@ class EmployerController extends BaseController {
 
         $emp->save();
 
-        return Redirect::to('employer-home');
+        return Redirect::to('employer/profile');
     }
     public function job_ads() {
 
         $ads = Ads::where('empid', '=', $this->emp->empid)->get();
+
         $duties = Duties::where('empid', '=', $this->emp->empid);
         return View::make('employer.ads')
                     ->with('emp', $this->emp)
