@@ -166,13 +166,13 @@
     <div class="ui middle aligned stackable grid container">
       <div class="row">
         <div class="eight wide column">
-          <h3 class="ui header">"Find the right for you"</h3>
+          <h3 class="ui header">Find the right for you</h3>
           <p> MaidFinderPH is a platform for home care service finder for employer and job seeker.</p>
-          <h3 class="ui header"> Quamquam haec quidem praeposita </h3>
-          <p> Quamquam haec quidem praeposita recte et reiecta dicere licebit. Egone non intellego, quid sit don Graece, Latine voluptas? </p>
+          <h3 class="ui header">Matching </h3>
+          <p>This platform allows matching base on your provided details. Create your job ad post and you will see suggested employee vise verse with employee to employer.</p>
         </div>
         <div class="six wide right floated column">
-          <img src="<?php echo asset('public/semantic/assets/img/babysitting_app.jpg'); ?>" class="ui large bordered rounded image">
+          <img class="ui  large bordered rounded image" src="<?php echo asset('public/semantic/assets/img/b1.jpg'); ?>">
         </div>
       </div>
     </div>
@@ -183,32 +183,19 @@
     <div class="ui equal width stackable internally celled grid">
       <div class="center aligned row">
         <div class="column">
-          <h3>"Lorem ipsum dolor sit amet"</h3>
-          <p> Quamquam haec quidem praeposita</p>
+          <h3>"Keep your free time free"</h3>
+          <p> Let you free time be yours free from hastle on house chores.</p>
         </div>
         <div class="column">
-          <h3>"Quamquam haec quidem praeposita recte."</h3>
+          <h3>"See the near job to your place"</h3>
           <p>
-            <img src="<?php echo asset('public/semantic/assets/img/bg1.jpg'); ?>" class="ui avatar image"> <b>Nan</b> Chief Fun Officer Acme Toys
+            <img src="<?php echo asset('public/semantic/assets/img/bg1.jpg'); ?>" class="ui avatar image">Find job that near to your love once no need to get far to have a job.
           </p>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="ui vertical stripe segment">
-    <div class="ui text container">
-      <h3 class="ui header">Lorem ipsum dolor sit amet</h3>
-      <p>Quamquam haec quidem praeposita recte et reiecta dicere licebit. Egone non intellego, quid sit don Graece, Latine voluptas?.</p>
-      <a class="ui large button">Read More</a>
-      <h4 class="ui horizontal header divider">
-        <a href="#">Case Studies</a>
-      </h4>
-      <h3 class="ui header">Did We Tell You About Our Bananas?</h3>
-      <p>Yes I know you probably disregarded the earlier boasts as non-sequitor filler content, but its really true. It took years of gene splicing and combinatory DNA research, but our bananas can really dance.</p>
-      <a class="ui large button">I'm Still Quite Interested</a>
-    </div>
-  </div>
 <!--Team-->
 
  <div id="contact" class="ui vertical stripe segment ">
@@ -473,7 +460,7 @@
         </div>
         <div class="seven wide column">
           <h4 class="ui inverted header">Get the App</h4>
-          <button class="ui inverted purple  button "><i class="download icon"></i>Download</button>
+          <button class="ui inverted   button "><i class="download icon"></i>Download</button>
           <h4>Connect with Us</h4>
           <button class="ui circular facebook icon button">
              <i class="facebook icon"></i>
