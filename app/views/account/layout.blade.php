@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('public/semantic/assets/css/mycss.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('public/semantic/assets/css/wodry.css') }}">
     <link href='https://fonts.googleapis.com/css?family=Dancing+Script' rel='stylesheet' type='text/css'>
-    <link rel="icon" href="{{ asset('semantic/assets/img/icon.png') }}">
+    <link rel="icon" href="{{ asset('public/semantic/assets/img/icon2.png') }}">
     <script type="text/javascript" src="{{ asset('public/semantic/assets/js/jquery.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('public/semantic/assets/js/wodry.min.js') }}"></script>
   @show
@@ -21,11 +21,11 @@
 
 </head>
 <body>
-    @section('header')
-        @include('account.header')
+   <!-------- @section('header')
+        @include('account.header')-->
     @show
     @yield('content')
-    @include('account.footer')
+    <!----@include('account.footer')-->
 @section('js')
     <script src="{{ asset('public/semantic/assets/js/semantic.min.js') }}"></script>
     <script src="{{ asset('public/semantic/assets/js/myjs.js') }}"></script>
