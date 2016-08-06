@@ -16,7 +16,7 @@ use Facebook\HttpClients\FacebookHttpable;
 FacebookSession::setDefaultApplication( '812236238877754','4ab57e00d802104a8381f476ee395f7fts' );
 // login helper with redirect_uri
 
-    $helper = new FacebookRedirectLoginHelper('http://localhost:7000/fb' );
+    $helper = new FacebookRedirectLoginHelper('http://localhost/MaidFinder' );
 try {
   $session = $helper->getSessionFromRedirect();
 } catch( FacebookRequestException $ex ) {
@@ -35,7 +35,21 @@ if ( isset( $session ) ) {
  	    $fbfullname = $graphObject->getProperty('name'); // To Get Facebook full name
 	    $femail = $graphObject->getProperty('email');    // To Get Facebook email ID
 	/* ---- Session Variables -----*/
-	    $_SESSION['ID'] = $fbid;
+
+    $emp = Employers::where('email' ,'=', $femail)->get();
+
+    if($emp and ($emp->email == $femail)) {
+        Session::put('employer', $emp);
+        Session::put('isAuth',true);
+        return Redirect::to('employer/home');
+    }
+    $app = Applicants::where('email', '=', $femail)->get();
+    if($app and ($app->email == $femail)) {
+        Session::put('applicant',$app);
+        Session::put('isAuth',true);
+        return Redirect::to('applicant/home');
+    }
+    return Redirect::to('user-login')->with('msg','Invalid email or password');
 
     /* ---- header location after session ----*/
   header("Location: index.php");

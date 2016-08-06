@@ -17,7 +17,7 @@
         <a class="collection-item black-text" href="{{ asset('applicant/shortlist') }}">Shortlist</a>
         <a class="collection-item black-text" href="{{ asset('employer/job/request') }}">Employers request</a>
         <a class="collection-item black-text" href="{{ asset('applicant/messagebox') }}">Message box</a>
+        <a class="collection-item black-text" href="{{ asset('applicant/application') }}">Job application</a>
         <a class="collection-item black-text" href="{{ asset('applicant/experience') }}">Experiences</a>
-        <a class="collection-item black-text" href="{{ asset('applicant/experience') }}">Skills</a>
     </div>
 </div>

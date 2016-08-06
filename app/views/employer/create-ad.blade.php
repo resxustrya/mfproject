@@ -13,7 +13,7 @@
                             <td>
                                 <select class="browser-default" name="jobtype" id="position">
                                     @foreach($jobtype as $item)
-                                        <option value="{{ $item['description'] }}">{{ $item['description'] }}</option>
+                                        <option value="{{ $item->jobtypeid }}">{{ $item['description'] }}</option>
                                     @endforeach
                                 </select>
                             </td>
@@ -23,7 +23,7 @@
                             <td>
                                 <select class="browser-default" name="location" id="location">
                                     @foreach($location as $loc)
-                                        <option value="{{ $loc['location'] }}">{{ $loc['location'] }}</option>
+                                        <option value="{{ $loc->regionid }}">{{ $loc->location }}</option>
                                     @endforeach
                                 </select>
                             </td>
@@ -32,9 +32,9 @@
                             <td><label for="edlevel">Education level</label> </td>
                             <td>
                                 <select name="edlevel" class="browser-default">
-                                    <option value="1">Elementary</option>
-                                    <option value="2">High School</option>
-                                    <option value="3">College</option>
+                                    <option value="Elementary">Elementary</option>
+                                    <option value="High School">High School</option>
+                                    <option value="College">College</option>
                                 </select>
                             </td>
                         </tr>

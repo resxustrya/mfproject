@@ -33,7 +33,7 @@ class Employer extends Migration {
 			$table->boolean('ishiring')->nullable();
 			$table->boolean('subscribe')->nullable()->default(0);
 			$table->string('pitch')->nullable();
-			$table->string('location')->nullable();
+			$table->integer('regionid')->nullable();
 			$table->timestamps();
 			$table->softDeletes();
 		});

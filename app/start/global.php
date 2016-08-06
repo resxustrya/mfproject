@@ -80,11 +80,12 @@ App::down(function()
 
 require app_path().'/filters.php';
 
-/*
+
 App::missing(function($exception){
     return Response::view('notfounde', array(), 404);
 });
-*/
+
+
 App::error(function(ModelNotFoundException $e){
     return Redirect::to('hello');
 });

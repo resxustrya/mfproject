@@ -1,13 +1,13 @@
 <div class="row">
    <div class="row">
-      <div class="card-panel">
+      <div class="card-panel ">
           <div class="row">
-              <a href="{{ asset('employer/profile') }}">
-                  <img height="100px" width="140px" src="{{ asset('public/uploads/profile/'.(($emp['profilepic']) != null ? $emp['profilepic'] :'facebook.jpg' )) }}" />
+              <a  href="{{ asset('employer/profile') }}">
+                  <img height="150px" width="150px" src="{{ asset('public/uploads/profile/'.(($emp['profilepic']) != null ? $emp['profilepic'] :'facebook.jpg' )) }}" />
                   <br /><br />
-                  <span>{{ $emp['fname']." ".$emp['lname'] }}</span>
+                  <span class="black-text">{{ $emp['fname']." ".$emp['lname'] }}</span>
                   <br />
-                  <strong>Employer</strong>
+                  <strong class="black-text">Employer</strong>
               </a>
           </div>
       </div>

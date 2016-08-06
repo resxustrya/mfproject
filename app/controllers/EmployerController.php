@@ -7,15 +7,15 @@ class EmployerController extends BaseController {
 
     private $emp;
     public function __construct() {
-        $id = Session::get('employer');
 
-        $this->emp = Employers::find($id['empid']);
-
-         $this->beforeFilter(function() {
-            if(! Session::has('employer')) {
+        $this->beforeFilter(function () {
+            if (!Session::has('employer')) {
                 return Redirect::to('user-login');
             }
         });
+        if(Session::has('employer')) {
+            $this->emp = Employers::find(Session::get('employer')->empid);
+        }
     }
 
     public function employer_home() {
@@ -25,9 +25,14 @@ class EmployerController extends BaseController {
                     ->with('app', $app)
                     ->with('ads',$ads);
     }
-
     public function employer_profile() {
-        return View::make('employer.profile')->with('emp',$this->emp);
+
+
+        $location = Regions::where('regionid', '=',$this->emp->regionid)->first();
+
+        return View::make('employer.profile')
+                        ->with('emp',$this->emp)
+                        ->with('location', $location);
     }
     public function update_profile() {
         $region = Regions::all();
@@ -47,10 +52,10 @@ class EmployerController extends BaseController {
         $emp->civilstatus = Input::get('status');
         $emp->contactno = Input::get('contactno');
         $emp->nationality = Input::get('nationality');
-        $emp->location = Input::get('location');
+        $emp->regionid = Input::get('location');
         $emp->pitch = Input::get('pitch');
 
-        if(Input::hasFile('picture')) {
+        if(Input::hasFile('profilepic')) {
             $filename = \Illuminate\Support\Facades\Input::file('profilepic')->getClientOriginalName();
             $path = base_path() . '/public/uploads/profile/';
             Input::file('profilepic')->move($path, $filename);
@@ -59,17 +64,24 @@ class EmployerController extends BaseController {
 
         $emp->save();
 
-        return Redirect::to('employer/profile');
+        return Redirect::to('employer/profile')
+                        ->with('message', 'Profile updated.');
     }
     public function job_ads() {
 
-        $ads = Ads::where('empid', '=', $this->emp->empid)->get();
-
-        $duties = Duties::where('empid', '=', $this->emp->empid);
-        return View::make('employer.ads')
-                    ->with('emp', $this->emp)
-                    ->with('ads',$ads)
-                    ->with('duties', $duties);
+        $ads = Ads::where('empid', '=', $this->emp->empid)->first();
+        if(isset($ads) and count($ads) >0) {
+            $duties = Duties::where('empid', '=', $this->emp->empid)->first();
+            $jobtype = JobTypes::where('jobtypeid', '=', $ads->jobtypeid)->first();
+            $location = Regions::where('regionid', '=', $ads->regionid)->first();
+            return View::make('employer.ads')
+                ->with('emp', $this->emp)
+                ->with('ads', $ads)
+                ->with('duties', $duties)
+                ->with('jobtype', $jobtype)
+                ->with('location', $location);
+        }
+        return Redirect::to('create/ad');
     }
     public function create_ads() {
         $jobtype = JobTypes::all();
@@ -83,16 +95,14 @@ class EmployerController extends BaseController {
     public function new_ads() {
         $ads = new Ads();
         $duties = new Duties();
-
-
         $ads->empid = $this->emp->empid;
-        $ads->location = Input::get('location');
+        $ads->regionid = Input::get('location');
         $ads->startdate = Input::get('year') .'-' . Input::get('month') .'-' .Input::get('day');
         $ads->capacity = Input::get('capacity');
         $ads->salary =Input::get('salary');
         $ads->gender = Input::get('gender');
         $ads->edlevel = Input::get('edlevel');
-        $ads->jobtype = Input::get('jobtype');
+        $ads->jobtypeid = Input::get('jobtype');
         $ads->contractyears = Input::get('contractyears');
         $ads->save();
 

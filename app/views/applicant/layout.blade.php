@@ -19,9 +19,13 @@
         main {
             flex: 1 0 auto;
         }
+        a:hover {
+            text-decoration: underline;
+            color: #0f0f10;
+        }
     </style>
 </head>
-<body class="grey lighten-4">
+<body class="grey lighten-5">
 
 @include('applicant.header')
 <div class="container-fluid">
@@ -39,7 +43,7 @@
             @include('applicant.rightsection')
         </div>
     </div>
-    @include('applicant.footer')
+    @include('shared.footer')
 </div>
 
 <script src="{{ asset('public/material/js/jquery.js') }}"></script>

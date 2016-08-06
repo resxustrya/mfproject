@@ -16,7 +16,7 @@ class Job extends Migration {
 			$table->increments('jobid');
 			$table->integer('empid')->nullable();
 			$table->string('description',200)->nullable();
-			$table->string('location',200)->nullable();
+			$table->integer('regionid')->nullable();
 			$table->string('startdate',50)->nullable();
 			$table->string('position',50)->nullable();
 			$table->string('capacity',50)->nullable();

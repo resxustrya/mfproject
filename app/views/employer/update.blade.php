@@ -3,8 +3,15 @@
 @section('content')
     <div class="row">
         <div class="card-panel ">
-            <form action="{{ asset('employer/update') }}" method="POST">
+            <form action="{{ asset('employer/update') }}" method="POST" enctype="multipart/form-data">
+              {{ Form::token() }}
                 <h4>Update profile</h4>
+                <div class="row">
+                    <div class="col s12 m6 l6 right">
+                        <img id='picture' height="300px" width="300px" class="materialboxed square responsive-img right-align" src="{{ asset('public/uploads/profile/'.(($emp['profilepic']) != null ? $emp['profilepic'] :'facebook.jpg' )) }}" />
+                        <input type="file" name="profilepic">
+                    </div>
+                </div>
                 <div class="row">
                     <table>
                         <tr>
@@ -32,11 +39,21 @@
                             <td><label for="startdate"> Birth date <strong class="black-text">({{ $emp['bdate']}})</strong></label></td>
                             <td>
                                 <select class="browser-default" name="year">
-                                    <?php $date = explode('/', $emp['bdate']); ?>
-                                    <?php $count = 1 ?>
-                                    @for($i = date('Y');50 > $count++; $i--)
-                                        <option {{ $date[2] == $i ? 'selected' : ''}} value="{{ $i }}"> {{ $i }}</option>
-                                    @endfor
+
+                                    <?php
+                                        $count = 1;
+                                        $date = null;
+                                    ?>
+                                    @if($emp['bdate'] != null)
+                                        <?php $date = explode('/', $emp['bdate']); ?>
+                                        @for($i = date('Y');50 > $count++; $i--)
+                                            <option {{ $date[2] == $i ? 'selected' : ''}} value="{{ $i }}"> {{ $i }}</option>
+                                        @endfor
+                                    @else
+                                        @for($i = date('Y');50 > $count++; $i--)
+                                            <option value="{{ $i }}"> {{ $i }}</option>
+                                        @endfor
+                                    @endif
                                 </select>
                                 <select class="browser-default" name="month">
                                     <?php $month = array("January", "Febuary", "March", "April", "May", "June", "July", "August", "September","October", "November", "December"); ?>
@@ -56,7 +73,7 @@
                             <td>
                                 <select name="location" class="browser-default">
                                     @foreach($location as $loc)
-                                        <option value="{{ $emp['location'] }} {{ ( $emp['location'] == $loc ? 'selected' :'') }}">{{ $loc['location'] }}</option>
+                                        <option value="{{ $loc->regionid}}" {{ (($emp->regionid == $loc->regionid) ? 'selected' : '') }}>{{ $loc['location'] }}</option>
                                      @endforeach
                                 </select>
                             </td>
@@ -70,11 +87,9 @@
                             <td><input  class="browser-default" type="text" name="nationality" value="{{ isset($emp['nationality']) ? $emp['nationality'] : '' }}" /> </td>
                         </tr>
                         <tr>
-                            <td><label for="pitch">Say something about you job ad</label> </td>
+                            <td><label for="pitch">Say something about you self</label> </td>
                             <td>
-                                <textarea id="textarea1" rows="7" name="pitch" class="materialize-textarea">
-
-                                </textarea>
+                                <textarea id="textarea1" rows="7" name="pitch" class="materialize-textarea"></textarea>
                             </td>
                         </tr>
                     </table>
@@ -93,9 +108,10 @@
 @stop
 
 @section('js')
+    @parent
     <script crossorigin="anonymous">
         $(document).ready(function() {
-            $('select').material_select();
+
         });
 
     </script>

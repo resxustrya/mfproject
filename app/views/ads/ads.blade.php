@@ -13,11 +13,10 @@
                         <h4>MaidFinder Search</h4>
                         <p>To get the best search result, use our search filtering feature below that allows you to match a helper based on your job criteria. </p>
                     </div>
-
                 </div>
                 <div class="row">
                     <?php $count = 1; ?>
-                    @foreach($app as $applicant)
+                    @foreach($ads as $jobads)
                         <div class="col s12 m6 l4">
                             <div class="row z-depth-1 grey lighten-5 profile">
                                 <div class="col s12">

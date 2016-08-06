@@ -20,7 +20,7 @@
     <!-- Following Menu -->
 <div class="ui  fixed hidden menu borderless" style="margin-top:0px;background-color:#ecf0f1;">
    <div class="left item">
-            <a  class="logo " href="/" style="font-family:Dancing Script, cursive;weight:100;font-size:2.5em;"> <span  >MaidFinderPH </span></a>
+            <a class="logo " href="{{ asset('/') }}" style="font-family:Dancing Script, cursive;weight:100;font-size:2.5em;"> <span  >MaidFinderPH </span></a>
         </div>
   <div class="ui container">
         <div class="right item">
@@ -48,7 +48,6 @@
 </div>
     <!--sidebar-->
     <div class="ui sidebar menu  container icon labeled vertical ">
-
         <a class="item" href="#"><i class="global icon"></i> Cities</a>
         <a class="item" href="#"> Find a Maid</a>
         <a class="item" href="#"> Get a Job</a>

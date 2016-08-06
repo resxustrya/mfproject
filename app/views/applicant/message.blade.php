@@ -1,6 +1,4 @@
-
-
-@extends('employer.layout')
+@extends('applicant.layout')
 @section('css')
 
 @stop

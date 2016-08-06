@@ -79,9 +79,12 @@ Route::get('applicant/profile','ApplicantController@applicant_profile');
 Route::get('applicant/logout', 'ApplicantController@applicant_logout');
 Route::get('applicant/update', 'ApplicantController@update_profile');
 Route::post('applicant/update', 'ApplicantController@handle_update');
-Route::get('applicant/skill', 'ApplicantController@applicant_skill');
-Route::get('applicant/message','ApplicantController@message');
-
+Route::get('applicant/skills', 'ApplicantController@applicant_skill');
+Route::get('applicant/messagebox','ApplicantController@message');
+Route::get('applicant/application', 'ApplicantController@application');
+Route::get('applicant/create/application', 'ApplicantController@create_application');
+Route::post('applicant/create/application', 'ApplicantController@handle_application');
+Route::get('employers/job/ads', 'ApplicantController@employer_ads');
 
 /*
  *
@@ -204,4 +207,10 @@ Route::get('region/add', function() {
     $region->save();
 
     return "New region added";
+});
+
+Route::get('base/path', function() {
+    $path = base_path().'/public/uploads/profile/facebook.jpg';
+
+    return $path;
 });

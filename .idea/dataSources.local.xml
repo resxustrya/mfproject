@@ -7,7 +7,7 @@
       <schema-pattern>dtr.*</schema-pattern>
       <default-schemas>dtr.*</default-schemas>
     </data-source>
-    <data-source name="MySQL - maidfinder@localhost" uuid="30ed9248-835b-4f34-a61c-2262b223670e">
+    <data-source name="MySQL - maidfinder@localhost" uuid="b550f473-7ff5-4efa-9e5d-36bfa37ee7e8">
       <secret-storage>master_key</secret-storage>
       <user-name>root</user-name>
       <schema-pattern>maidfinder.*</schema-pattern>
