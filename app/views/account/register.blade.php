@@ -1,4 +1,4 @@
-<!@extends('account.layout')
+@extends('account.layout')
 @section('css')
     @parent
     <style>

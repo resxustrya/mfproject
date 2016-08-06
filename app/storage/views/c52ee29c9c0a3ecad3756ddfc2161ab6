@@ -21,11 +21,11 @@
 
 </head>
 <body>
-   <!-------- <?php $__env->startSection('header'); ?>
-        <?php echo $__env->make('account.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>-->
+   <!-- <?php $__env->startSection('header'); ?>-->
+    <!---<?php echo $__env->make('account.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>-->
     <?php echo $__env->yieldSection(); ?>
     <?php echo $__env->yieldContent('content'); ?>
-    <!----<?php echo $__env->make('account.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>-->
+   <!--- <?php echo $__env->make('account.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>-->
 <?php $__env->startSection('js'); ?>
     <script src="<?php echo asset('public/semantic/assets/js/semantic.min.js'); ?>"></script>
     <script src="<?php echo asset('public/semantic/assets/js/myjs.js'); ?>"></script>

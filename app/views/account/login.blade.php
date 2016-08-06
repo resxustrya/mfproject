@@ -1,4 +1,4 @@
-<!@extends('account.layout')
+@extends('account.layout')
 @section('css')
 @parent
 <style>
@@ -11,6 +11,7 @@
          background-size: cover;
          top: 0;
          left: 0;
+         margin-top:10em;
      }
     body > .grid {
       height: 100%;

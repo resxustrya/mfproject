@@ -21,11 +21,11 @@
 
 </head>
 <body>
-   <!-------- @section('header')
-        @include('account.header')-->
+   <!-- @section('header')-->
+    <!---@include('account.header')-->
     @show
     @yield('content')
-    <!----@include('account.footer')-->
+   <!--- @include('account.footer')-->
 @section('js')
     <script src="{{ asset('public/semantic/assets/js/semantic.min.js') }}"></script>
     <script src="{{ asset('public/semantic/assets/js/myjs.js') }}"></script>
