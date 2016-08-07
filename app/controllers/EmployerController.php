@@ -27,7 +27,6 @@ class EmployerController extends BaseController {
     }
     public function employer_profile() {
 
-
         $location = Regions::where('regionid', '=',$this->emp->regionid)->first();
 
         return View::make('employer.profile')
@@ -71,15 +70,21 @@ class EmployerController extends BaseController {
 
         $ads = Ads::where('empid', '=', $this->emp->empid)->first();
         if(isset($ads) and count($ads) >0) {
+
+            $dayof =  array('Monday', 'Tuesday', 'Wednesday','Thursday', 'Friday','Saturday','Sunday');
+            $edlevel = array("Elementary", "High School", "College graduate");
+
             $duties = Duties::where('empid', '=', $this->emp->empid)->first();
             $jobtype = JobTypes::where('jobtypeid', '=', $ads->jobtypeid)->first();
             $location = Regions::where('regionid', '=', $ads->regionid)->first();
             return View::make('employer.ads')
-                ->with('emp', $this->emp)
-                ->with('ads', $ads)
-                ->with('duties', $duties)
-                ->with('jobtype', $jobtype)
-                ->with('location', $location);
+                        ->with('emp', $this->emp)
+                        ->with('ads', $ads)
+                        ->with('duties', $duties)
+                        ->with('jobtype', $jobtype)
+                        ->with('location', $location)
+                        ->with('dayof', $dayof[$ads->dayof])
+                        ->with('edlevel',$edlevel[$ads->edlevel] );
         }
         return Redirect::to('create/ad');
     }
@@ -101,21 +106,73 @@ class EmployerController extends BaseController {
         $ads->capacity = Input::get('capacity');
         $ads->salary =Input::get('salary');
         $ads->gender = Input::get('gender');
+        $ads->dayof = Input::get('dayof');
         $ads->edlevel = Input::get('edlevel');
         $ads->jobtypeid = Input::get('jobtype');
         $ads->contractyears = Input::get('contractyears');
+        $ads->pitch = Input::get('pitch');
         $ads->save();
+
+        $duties->empid = $this->emp->empid;
+        $duties->cooking = Input::get('cooking');
+        $duties->laundry = Input::get('laundry');
+        $duties->gardening = Input::get('gardening');
+        $duties->grocery = Input::get('grocery');
+        $duties->cleaning = Input::get('cleaning');
+        $duties->tuturing = Input::get('tutoring');
+        $duties->other = Input::get('other');
+
+        $duties->save();
+
+        return Redirect::to('employer/ads')
+                        ->with('message','New job ad created');
+
+    }
+    public function update_ads() {
+        $duties = Duties::where('empid', '=', $this->emp->empid)->first();
+        if(isset($duties)) {
+            Session::put('dutyid', $duties->dutyid);
+        }
+        $ads = Ads::where('empid','=', $this->emp->empid)->first();
+        if(isset($ads)) {
+            Session::put('adid', $ads->adid);
+        }
+        return View::make('employer.update-ad')
+                    ->with('emp', $this->emp)
+                    ->with('location', Regions::all())
+                    ->with('duties',$duties)
+                    ->with('ads', $ads)
+                    ->with('jobtype', JobTypes::all());
+    }
+    public function handle_ad_update() {
+        $ads = Ads::find(Session::get('adid'))->first();
+        $duties = Duties::find(Session::get('dutyid'))->first();
+
+        $ads->regionid = Input::get('location');
+        $ads->startdate = Input::get('year') .'-' . Input::get('month') .'-' .Input::get('day');
+        $ads->capacity = Input::get('capacity');
+        $ads->salary =Input::get('salary');
+        $ads->gender = Input::get('gender');
+        $ads->dayof = Input::get('dayof');
+        $ads->edlevel = Input::get('edlevel');
+        $ads->jobtypeid = Input::get('jobtype');
+        $ads->contractyears = Input::get('contractyears');
+        $ads->pitch = Input::get('pitch');
+        $ads->save();
+
 
         $duties->cooking = Input::get('cooking');
         $duties->laundry = Input::get('laundry');
         $duties->gardening = Input::get('gardening');
         $duties->grocery = Input::get('grocery');
-        $duties->cleaning = Input::get('tuturing');
+        $duties->cleaning = Input::get('cleaning');
+        $duties->tuturing = Input::get('tutoring');
         $duties->other = Input::get('other');
 
         $duties->save();
 
-        return Redirect::to('employer/ads');
+        return Redirect::to('employer/ads')
+                        ->with('message', 'Job ad is updated.');
 
     }
     public function helpers() {
@@ -135,5 +192,8 @@ class EmployerController extends BaseController {
       Session::forget('employer');
       Session::flush();
       return Redirect::to('/');
+    }
+    public function display_records() {
+      $ads = new Ads();
     }
 }

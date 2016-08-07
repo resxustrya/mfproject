@@ -1,0 +1,83 @@
+<?php $__env->startSection('css'); ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+    <div class="row">
+        <h4>Your job ads</h4>
+        <?php if(Session::has('message')): ?>
+            <div class="card-panel light-green lighten-3">
+                <span class="center-align">
+                    <?php echo Session::get('message'); ?>
+
+                </span>
+            </div>
+        <?php endif; ?>
+    </div>
+    <?php if(count($ads) >0): ?>
+        <div class="row">
+            <div class="card-panel transparent">
+                <div class="right-align"><a href="<?php echo asset('update/ad'); ?>" style="text-decoration: underline;" class="btn cyan lighten-3">Update ad</a></div>
+                <h5>Job type : <?php echo $jobtype->description; ?></h5>
+                <br /><span>Location : <strong><?php echo $location->location; ?></strong></span>
+                <br/><span>Start date : <strong><?php echo $ads->startdate; ?></strong></span>
+                <br/><span>Capacity : <strong><?php echo $ads->capacity; ?></strong></span>
+                <br/><span>Salary : <strong><?php echo printf("%.2f",$ads->salary); ?></strong></span>
+                <br/><span>Years contract : <strong><?php echo $ads->contractyears; ?> years</strong></span>
+                <br/><span>Gender : <strong><?php echo $ads->gender; ?></strong></span>
+                <br/><span>Day off : <strong><?php echo $dayof; ?></strong></span>
+                <br/><span>Education level : <strong><?php echo $edlevel; ?></strong></span>
+                <br /><span>Pitch : <strong><?php echo $ads->pitch; ?></strong></span>
+                <div class="row">
+                    <h4>Other house duties</h4>
+                    <?php if(isset($duties)): ?>
+                        <table border="0">
+                            <tr>
+                                <td>
+                                    <input type="checkbox" id="test5" <?php echo $duties->cooking != null ? 'checked' :''; ?> disabled name="cooking" value="Cooking"/>
+                                    <label for="test5">Cooking</label>
+                                </td>
+                                <td>
+                                    <input type="checkbox" id="test6" <?php echo $duties->laundry != null ? 'checked' :''; ?> name="laundry" disabled value="Laundry"/>
+                                    <label for="test6">Laundry</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" id="test7" name="gardening" <?php echo $duties->gardening != null ? 'checked' :''; ?> disabled value="Gardening"/>
+                                    <label for="test7">Gardening</label>
+                                </td>
+                                <td>
+                                    <input type="checkbox" id="test8" name="grocery" <?php echo $duties->grocery != null ? 'checked' :''; ?> disabled value="Grocery"/>
+                                    <label for="test8">Grocery</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" id="test9" name="cleaning" <?php echo $duties->cleaning != null ? 'checked' :''; ?> disabled value="House Cleaning"/>
+                                    <label for="test9">House cleaning</label>
+                                </td>
+                                <td>
+                                    <input type="checkbox" id="test10" name="tutoring" <?php echo $duties->tuturing != null ? 'checked' :''; ?> disabled value="Tutoring"/>
+                                    <label for="test10">Tutoring</label>
+                                </td>
+                            </tr>
+                        </table>
+                        <p>
+                            <span>Other job description : </span> <strong><?php echo $duties->other; ?></strong>
+                        </p>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="left-align"><a href="<?php echo asset('employer/shortlist'); ?>" class="btn cyan lighten-3">Shortlist</a></div>
+        </div>
+    <?php endif; ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('js'); ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('employer.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

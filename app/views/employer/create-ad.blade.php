@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="row">
-        <div class="card-panel ">
+        <div class="card-panel transparent">
             <form action="{{ asset('create/ad') }}" method="POST">
                 <h4>Create new ad</h4>
                 <div class="row">
@@ -23,7 +23,7 @@
                             <td>
                                 <select class="browser-default" name="location" id="location">
                                     @foreach($location as $loc)
-                                        <option value="{{ $loc->regionid }}">{{ $loc->location }}</option>
+                                        <option value="{{ $loc->regionid }}">{{ $loc['location'] }}</option>
                                     @endforeach
                                 </select>
                             </td>
@@ -31,10 +31,11 @@
                         <tr>
                             <td><label for="edlevel">Education level</label> </td>
                             <td>
+                                <?php $edlevel = array("Elementary", "High School", "College graduate"); ?>
                                 <select name="edlevel" class="browser-default">
-                                    <option value="Elementary">Elementary</option>
-                                    <option value="High School">High School</option>
-                                    <option value="College">College</option>
+                                    @foreach($edlevel as $key => $value)
+                                        <option value="{{ $key }}">{{ $value }}</option>
+                                    @endforeach
                                 </select>
                             </td>
                         </tr>
@@ -58,7 +59,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><label for="startdate"> Start date <strong class="black-text">(yyyy-m-d)</strong></label></td>
+                            <td><label for="startdate"> Start date <strong class="black-text"></strong></label></td>
                             <td>
                                 <select class="browser-default" name="year">
 
@@ -70,12 +71,11 @@
                                 <select class="browser-default" name="month">
                                     <?php $month = array("January", "Febuary", "March", "April", "May", "June", "July", "August", "September","October", "November", "December"); ?>
 
-                                    @foreach($month as $m)
-                                        <option value="{{ $m }}">{{ $m }}</option>
+                                    @foreach($month as $key => $value)
+                                        <option value="{{ $key }}">{{ $value }}</option>
                                     @endforeach
                                 </select>
                                 <select name="day"  class="browser-default">
-
                                     @for($i = 1; $i <= 31; $i++)
                                         <option value="{{ $i }}">{{ $i }}</option>
                                     @endfor
@@ -96,8 +96,8 @@
                             <td>
                                 <?php $days = array('Monday', 'Tuesday', 'Wednesday','Thursday', 'Friday','Saturday','Sunday'); ?>
                                 <select name="dayof" class="browser-default">
-                                    @foreach($days as $day)
-                                        <option value="{{ $day }}">{{ $day }}</option>
+                                    @foreach($days as $key => $value)
+                                        <option value="{{ $key }}">{{ $value }}</option>
                                     @endforeach
                                 </select>
                             </td>
@@ -109,53 +109,51 @@
                         <tr>
                             <td><label for="pitch">Say something about you job ad</label> </td>
                             <td>
-                                <textarea id="textarea1" rows="7" name="pitch" class="materialize-textarea">
-
-                                </textarea>
+                                <textarea id="textarea1" rows="7" name="pitch" class="materialize-textarea"></textarea>
                             </td>
                         </tr>
                     </table>
                 </div>
                 <div class="row">
                     <h4>Other house duties</h4>
-                   <table border="0">
-                       <tr>
-                           <td>
-                               <input type="checkbox" id="test5" name="cooking" value="Cooking"/>
-                               <label for="test5">Cooking</label>
-                           </td>
-                           <td>
-                               <input type="checkbox" id="test6" name="laundry" value="Laundry"/>
-                               <label for="test6">Laundry</label>
-                           </td>
-                       </tr>
-                       <tr>
-                           <td>
-                               <input type="checkbox" id="test7" name="gardening" value="gardening"/>
-                               <label for="test7">Gardening</label>
-                           </td>
-                           <td>
-                               <input type="checkbox" id="test8" name="grocery" value="Grocery"/>
-                               <label for="test8">Grocery</label>
-                           </td>
-                       </tr>
-                       <tr>
-                           <td>
-                               <input type="checkbox" id="test9" name="cleaning" value="House Cleaning"/>
-                               <label for="test9">House cleaning</label>
-                           </td>
-                           <td>
-                               <input type="checkbox" id="test10" name="tutoring" value="Tutoring"/>
-                               <label for="test10">Tutoring</label>
-                           </td>
-                       </tr>
-                       <tr>
-                           <td><label for="other">Other description</label> </td>
-                           <td>
-                               <textarea id="textarea1" name="other" class="materialize-textarea"></textarea>
-                           </td>
-                       </tr>
-                   </table>
+                    <table border="0">
+                        <tr>
+                            <td>
+                                <input type="checkbox" id="test5" name="cooking" value="Cooking"/>
+                                <label for="test5">Cooking</label>
+                            </td>
+                            <td>
+                                <input type="checkbox" id="test6" name="laundry" value="Laundry"/>
+                                <label for="test6">Laundry</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" id="test7" name="gardening" value="gardening"/>
+                                <label for="test7">Gardening</label>
+                            </td>
+                            <td>
+                                <input type="checkbox" id="test8" name="grocery" value="Grocery"/>
+                                <label for="test8">Grocery</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" id="test9" name="cleaning" value="House Cleaning"/>
+                                <label for="test9">House cleaning</label>
+                            </td>
+                            <td>
+                                <input type="checkbox" id="test10" name="tutoring" value="Tutoring"/>
+                                <label for="test10">Tutoring</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="other">Other description</label> </td>
+                            <td>
+                                <textarea id="textarea1" name="other" class="materialize-textarea"></textarea>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
                 <div class="row">
                     <table>

@@ -17,7 +17,7 @@
         </div>
     @else
         <div class="row">
-            <div class="card-panel">
+            <div class="card-panel transparent">
                 <h6 class="center-align">Your ads info</h6>
                 <div class="center-align"><a href="{{ asset('create/ad') }}" class="btn cyan lighten-3">Create ad now</a></div>
             </div>
@@ -25,11 +25,11 @@
     @endif
 
     <div class="row">
-        <div class="card-panel">
+        <div class="card-panel transparent">
             <h6><strong>Find helpers</strong></h6>
             <form action="{{ asset('helpers') }}" method="get">
                 <div class="row">
-                    <div class="col s12 m3 l6">
+                    <div class="col s12 m12 l6">
                         <?php $location = Regions::all(); ?>
                         <select name="location" class="browser-default">
                             @foreach($location as $loc)
@@ -37,7 +37,7 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="col s12 m3 l6">
+                    <div class="col s12 m12 l6">
                         <?php $jobtype = JobTypes::all(); ?>
                         <select name="jobtype" class="browser-default">
                             @foreach($jobtype as $type)
@@ -47,7 +47,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col s12 m3 l12 center-align">
+                    <div class="col s12 m12 l12 center-align">
                         <div class="center-align"><input type="submit" href="{{ asset('helpers') }}" class="btn cyan lighten-3 col s12 l12 m12" value="Find a match" /> </div>
                     </div>
                 </div>
@@ -55,12 +55,12 @@
                     <div class="divider"></div>
                     <div><br /></div>
                     @foreach($app as $applicant)
-                        <div class="col s12 m6 l12">
+                        <div class="col s12 m12 l12">
                             <div class="row z-depth-1 grey lighten-5 profile">
                                 <div class="col s12">
                                     &nbsp;
                                 </div>
-                                <div class="col s12 m7 l6">
+                                <div class="col s12 m12 l6">
                                     <img height="100px" width=130px" src="{{ asset('public/uploads/profile/'.(($applicant['profilepic']) != null ? $applicant['profilepic'] :'facebook.jpg' )) }}" class="materialboxed responsive-img rectangle" alt="sample"/>
                                 </div>
                                 <div class="card-content">

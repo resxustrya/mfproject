@@ -2,13 +2,16 @@
 
 @section('content')
     <div class="row">
-        <div class="card-panel ">
+        <h4>Update your profile</h4>
+        <div class="card-panel transparent">
             <form action="{{ asset('employer/update') }}" method="POST" enctype="multipart/form-data">
               {{ Form::token() }}
-                <h4>Update profile</h4>
                 <div class="row">
-                    <div class="col s12 m6 l6 right">
-                        <img id='picture' height="300px" width="300px" class="materialboxed square responsive-img right-align" src="{{ asset('public/uploads/profile/'.(($emp['profilepic']) != null ? $emp['profilepic'] :'facebook.jpg' )) }}" />
+                  <div class="col s12 m6 l6">
+
+                  </div>
+                    <div class="col s12 m6 l6">
+                        <img id="editpicture" class="right-align" src="{{ asset('public/uploads/profile/'.(($emp['profilepic']) != null ? $emp['profilepic'] :'facebook.jpg' )) }}" />
                         <input type="file" name="profilepic">
                     </div>
                 </div>
@@ -57,8 +60,8 @@
                                 </select>
                                 <select class="browser-default" name="month">
                                     <?php $month = array("January", "Febuary", "March", "April", "May", "June", "July", "August", "September","October", "November", "December"); ?>
-                                    @foreach($month as $m)
-                                        <option {{ $date[0] == $m ? 'selected' : ''}} value="{{ $m }}">{{ $m }}</option>
+                                    @foreach($month as $key => $value)
+                                        <option {{ $date[0] == $key ? 'selected' : ''}} value="{{ $key}}">{{ $value }}</option>
                                     @endforeach
                                 </select>
                                 <select name="day"  class="browser-default">

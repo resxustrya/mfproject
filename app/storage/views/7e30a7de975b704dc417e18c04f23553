@@ -1,0 +1,43 @@
+<?php $__env->startSection('css'); ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+    <div class="row">
+        <h4>Your job application</h4>
+        <?php if(Session::has('message')): ?>
+            <div class="card-panel light-green lighten-3">
+                <span class="center-align">
+                    <?php echo Session::get('message'); ?>
+
+                </span>
+            </div>
+        <?php endif; ?>
+    </div>
+    <div class="row">
+        <?php foreach($application as $a): ?>
+            <div class="card-panel">
+               <div class="row">
+                   <div class="col s12 m6 l6">
+                       <p>Position : <strong><?php echo $a->position; ?></strong></p>
+                       <p>Salary : <strong><?php echo $a->salary; ?></strong></p>
+                       <p>Job type : <strong><?php echo $a->jobtype; ?></strong></p>
+                       <p>Job location : <strong><?php echo $a->location; ?></strong></p>
+                       <p>Education : <strong><?php echo $a->edlevel; ?></strong></p>
+                       <p>Self pitch : <br /><strong><?php echo $a->pitch; ?></strong></p>
+                   </div>
+                   <div class="col s12 m6 l6">
+                       <p class="right-align">
+                           <a href="<?php echo asset('create/ad'); ?>" class="btn cyan lighten-3">Edit appication</a>
+                       </p>
+                   </div>
+               </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('js'); ?>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('applicant.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

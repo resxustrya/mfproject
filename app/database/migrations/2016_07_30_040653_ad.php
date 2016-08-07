@@ -20,9 +20,9 @@ class Ad extends Migration {
 			$table->string('capacity',50)->nullable();
 			$table->double('salary')->nullable();
 			$table->string('pitch')->nullable();
-			$table->string('dayof', 20)->nullable();
-			$table->string('gender', 5)->nullable();
-			$table->string('edlevel')->nullable();
+			$table->integer('dayof')->nullable();
+			$table->string('gender', 10)->nullable();
+			$table->integer('edlevel')->nullable();
 			$table->integer('contractyears')->nullable();
 			$table->integer('jobtypeid')->nullable();
 			$table->timestamps();

@@ -50,32 +50,36 @@
                 <form class="ui form" action="user-register" method="POST">
                     <div class="ui stacked segment">
                         <div class="field">
-                            <div class="ui left icon input">
-                                <i class="user icon"></i>
+                            <div class="ui left input">
                                 <input type="text" name="email" placeholder="E-mail address" value="{{ isset($data['email']) ? $data['email'] : '' }}">
                             </div>
                         </div>
                         <div class='field'>
-                            <div class='ui left icon input'>
-                                <i class='user icon'></i>
+                            <div class='ui left input'>
                                 <input type="text" name='fname' placeholder="First Name" value="{{ isset($data['fname']) ? $data['fname'] : '' }}"/>
                             </div>
                         </div>
                         <div class='field'>
-                            <div class='ui left icon input'>
-                                <i class='user icon'></i>
+                            <div class='ui left input'>
                                 <input type="text" name='lname' placeholder="Last Name" value="{{ isset($data['lname']) ? $data['lname'] : '' }}"/>
                             </div>
                         </div>
                         <div class="field">
-                            <div class="ui left icon input">
-                                <i class="lock icon"></i>
+                            <div class="ui left input">
+                                <select name="gender" class="ui dropdown">
+                                    <option value="" disabled selected>Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui left  input">
                                 <input type="password" name="password" placeholder="Password">
                             </div>
                         </div>
                         <div class="field">
-                            <div class="ui left icon input">
-                                <i class="lock icon"></i>
+                            <div class="ui left input">
                                 <input type="password" name="confirm" placeholder=" Confirm Password">
                             </div>
                         </div>
@@ -102,5 +106,3 @@
         <div class="column"></div>
     </div>
 @stop
-
-

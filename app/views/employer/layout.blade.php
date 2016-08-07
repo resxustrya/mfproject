@@ -4,26 +4,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('public/material/css/mycss.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('public/material/css/materialize.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('public/material/css/page.css')}}" />
     @section('css')
 
     @show
     @section('title')
         <title>MaidFinder PH</title>
     @show
-    <style>
-        body {
-            display: flex;
-            min-height: 100vh;
-            flex-direction: column;
-        }
-        main {
-            flex: 1 0 auto;
-        }
-        a:hover {
-            text-decoration: underline;
-            color: #0f0f10;
-        }
-    </style>
 </head>
 <body class="grey lighten-5">
 
@@ -33,13 +20,13 @@
         @include('employer.warnings')
     </div>
     <div class="row">
-        <div class="col s12 m5 l2">
+        <div class="col s12 m12 l2 hide-on-med-and-down">
             @include('employer.sidenav')
         </div>
-        <div class="col s12 m5 l7">
+        <div class="col s12 m12 l7">
             @yield('content')
         </div>
-        <div class="col s12 m5 l3">
+        <div class="col s12 m12 l3">
             @include('employer.rightsection')
         </div>
     </div>

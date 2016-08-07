@@ -14,7 +14,7 @@
     </div>
     <div class="row">
         <div class="collection with-header">
-            <div class="collection-item"><img height="200px" width="200px" class="materialboxed square responsive-img" src="{{ asset('public/uploads/profile/'.(($emp['profilepic']) != null ? $emp['profilepic'] :'facebook.jpg' )) }}"></div>
+            <div class="collection-item"><img id="editpicture" class="materialboxed square responsive-img" src="{{ asset('public/uploads/profile/'.(($emp['profilepic']) != null ? $emp['profilepic'] :'facebook.jpg' )) }}"></div>
             <div class="collection-item">
                 <table border="0" class="browser-default">
                     <tr>
@@ -23,7 +23,7 @@
                     </tr>
                     <tr>
                         <td>Location</td>
-                        <td><strong>{{ $location->location }}</strong></td>
+                        <td><strong>{{ $location['location'] }}</strong></td>
                     </tr>
                     <tr>
                         <td>Address</td>

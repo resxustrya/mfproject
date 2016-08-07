@@ -22,7 +22,15 @@
             <li><a class="black-text dropdown-button" href="#!" data-activates="dropdown1">{{ $emp['fname'] }}<i class="material-icons right">arrow_drop_down</i></a></li>
         </ul>
         <ul class="side-nav" id="mobile-demo">
-            <li><a class="black-text" href="{{ asset('employer/home') }}">Home</a></li>
+            <li>
+                <div class="collection black-text">
+                    <a class="collection-item black-text" href="{{ asset('employer/home') }}">Home</a>
+                    <a class="collection-item black-text" href="{{ asset('employer/shortlist') }}">Shortlist</a>
+                    <a class="collection-item black-text" href="{{ asset('job/request') }}">Job request</a>
+                    <a class="collection-item black-text" href="{{ asset('employer/message/inbox') }}">Message box</a>
+                    <a class="collection-item black-text" href="{{ asset('employer/ads') }}">Publish job ads</a>
+                </div>
+            </li>
             <li><a class="black-text" href="{{ asset('helpers') }}">Find helpers</a></li>
             <li><a class="black-text"href="badges.html">Recomendations</a></li>
             <!-- Dropdown Trigger -->

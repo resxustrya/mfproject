@@ -18,12 +18,12 @@
                 <div class="row">
                     <?php $count = 1; ?>
                     @foreach($app as $applicant)
-                        <div class="col s12 m6 l4">
+                        <div class="col s12 m12 l4">
                             <div class="row z-depth-1 grey lighten-5 profile">
                                 <div class="col s12">
                                     &nbsp;
                                 </div>
-                                <div class="col s12 m7 l6">
+                                <div class="col s12 m12 l6">
                                     <img height="100px" width=130px" src="{{ asset('public/uploads/profile/'.(($applicant['profilepic']) != null ? $applicant['profilepic'] :'facebook.jpg' )) }}" class="materialboxed responsive-img rectangle" alt="sample"/>
                                 </div>
                                 <div class="card-content">
@@ -38,10 +38,10 @@
                         <div id="modal{{$count}}" class="modal">
                             <div class="modal-content">
                                 <div class="row">
-                                    <div class="col s12 m6 l6">
+                                    <div class="col s12 m12 l6">
                                         <img class="responsive-img" height="300px" width="200px" src="{{ asset('public/uploads/profile/'.(($applicant['profilepic']) != null ? $applicant['profilepic'] :'facebook.jpg' )) }}">
                                     </div>
-                                    <div class="col s12 m6 l6">
+                                    <div class="col s12 m12 l6">
                                         <span class="card-title activator grey-text text-darken-4">{{ $applicant['fname'] ." ".$applicant['lname'] }}</span>
                                     </div>
                                 </div>

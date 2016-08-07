@@ -23,7 +23,9 @@ class AccountController extends BaseController {
         if($emp and ($emp->email == Input::get('email') and $emp->password == Input::get('password'))) {
             Session::put('employer', $emp);
             Session::put('isAuth',true);
-            return Redirect::to('employer/home');
+
+
+            return Redirect::to('employer/update');
         }
         $app = Applicants::where('email', '=', Input::get('email'))
                 ->where('password', '=', Input::get('password'))
@@ -31,7 +33,7 @@ class AccountController extends BaseController {
         if($app and ($app->email == Input::get('email') and $app->password == Input::get('password'))) {
             Session::put('applicant',$app);
             Session::put('isAuth',true);
-            return Redirect::to('applicant/home');
+            return Redirect::to('applicant/update');
         }
         return Redirect::to('user-login')->with('msg','Invalid email or password');
     }
@@ -64,6 +66,7 @@ class AccountController extends BaseController {
             'email' => Input::get('email'),
             'fname' => Input::get('fname'),
             'lname' => Input::get('lname'),
+            'gender' => Input::get('gender'),
             'pass' => Input::get('password'),
             'confirm' => Input::get('confirm')
         );
@@ -71,6 +74,7 @@ class AccountController extends BaseController {
         $rules = array(
             'email' => 'required|email',
             'fname' => 'required',
+            'gender' => 'required',
             'lname' => 'required',
             'pass' => 'required|max:10',
             'confirm' => 'same:pass'
@@ -78,6 +82,7 @@ class AccountController extends BaseController {
         $messages = array(
             'email.required' => 'Email is required',
             'email.email' => 'Invalid email',
+            'gender.required' => 'Gender is required',
             'fname.required' => 'First name is required',
             'lname.required' => 'Last name is required',
             'pass.required' => 'Password is required',
@@ -107,6 +112,7 @@ class AccountController extends BaseController {
             $emp->email = $temp['email'];
             $emp->fname = $temp['fname'];
             $emp->lname = $temp['lname'];
+            $emp->gender = $temp['gender'];
             $emp->password = $temp['pass'];
             $emp->save();
             Session::forget('temp');
@@ -130,6 +136,7 @@ class AccountController extends BaseController {
           $app->email = $temp['email'];
           $app->fname = $temp['fname'];
           $app->lname = $temp['lname'];
+          $app->gender = $temp['gender'];
           $app->password = $temp['pass'];
           $app->save();
           Session::forget('temp');

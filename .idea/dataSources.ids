@@ -380,19 +380,19 @@
         <data-type>varchar(255)</data-type>
       </column>
       <column id="85" parent="6" name="dayof">
-        <data-type>varchar(20)</data-type>
+        <data-type>int(11)</data-type>
       </column>
       <column id="86" parent="6" name="gender">
         <data-type>varchar(5)</data-type>
       </column>
       <column id="87" parent="6" name="edlevel">
-        <data-type>varchar(255)</data-type>
+        <data-type>int(11)</data-type>
       </column>
       <column id="88" parent="6" name="contractyears">
         <data-type>int(11)</data-type>
       </column>
-      <column id="89" parent="6" name="jobtype">
-        <data-type>varchar(255)</data-type>
+      <column id="89" parent="6" name="jobtypeid">
+        <data-type>int(11)</data-type>
       </column>
       <column id="90" parent="6" name="created_at">
         <mandatory>1</mandatory>
